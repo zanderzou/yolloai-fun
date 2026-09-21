@@ -1,0 +1,3 @@
+const host="yolloai.fun";const key="29e6685c404b4754b70a6c97242af8be";const urlList=[`https://${host}/`,`https://${host}/blog/`,`https://${host}/blog/yolloai-vs-character-ai/`,`https://${host}/blog/yolloai-vs-janitor-ai/`,`https://${host}/blog/is-yolloai-safe/`,`https://${host}/about/`,`https://${host}/privacy/`,`https://${host}/terms/`,`https://${host}/editorial-policy/`,`https://${host}/contact/`];const response=await fetch("https://api.indexnow.org/indexnow",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({host,key,keyLocation:`https://${host}/${key}.txt`,urlList})});console.log(`IndexNow response: ${response.status} ${response.statusText}`);if(!response.ok&&response.status!==202)process.exitCode=1;
+
+

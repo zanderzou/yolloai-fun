@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yolloai.fun/sitemap-index.xml
+
