@@ -1,0 +1,34 @@
+# Yollo AI Guide
+
+> An independent Yollo AI guide to AI roleplay, character creation, image and video generation, privacy, regional availability, pricing, and alternatives.
+
+Canonical publication: https://yolloai.fun/
+
+This is an independent editorial publication, not the official provider. Articles distinguish published provider information from suggested evaluation methods. Examples and proposed tests are not measured benchmark results. Check dated sources and live provider terms for changing features and prices.
+
+## Main pages
+
+- [Homepage](https://yolloai.fun/): Overview and practical decision guidance.
+- [Blog and comparisons](https://yolloai.fun/blog/): Browse the editorial article collection.
+
+## Comparisons
+
+- [Yollo AI vs Candy AI: Features, Strengths, Weaknesses](https://yolloai.fun/blog/yolloai-vs-candy-ai/)
+- [Yollo AI vs Character.AI: Roleplay and Video Compared](https://yolloai.fun/blog/yolloai-vs-character-ai/)
+- [Yollo AI vs CrushOn AI: Features, Strengths, Weaknesses](https://yolloai.fun/blog/yolloai-vs-crushon-ai/)
+- [Yollo AI vs Janitor AI: Which Roleplay Platform Fits?](https://yolloai.fun/blog/yolloai-vs-janitor-ai/)
+- [Yollo AI vs SpicyChat AI: Features, Strengths, Weaknesses](https://yolloai.fun/blog/yolloai-vs-spicychat-ai/)
+
+## Publication information
+
+- [About](https://yolloai.fun/about/)
+- [Editorial policy](https://yolloai.fun/editorial-policy/)
+- [Contact](https://yolloai.fun/contact/)
+- [Privacy policy](https://yolloai.fun/privacy/)
+- [Terms](https://yolloai.fun/terms/)
+
+## Optional
+
+- [XML sitemap](https://yolloai.fun/sitemap-index.xml): Canonical page inventory.
+- [RSS feed](https://yolloai.fun/rss.xml): Published article updates.
+- [Robots policy](https://yolloai.fun/robots.txt): Crawler access directives.
