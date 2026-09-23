@@ -1,5 +1,5 @@
 export const site = {
-  name: "Yollo AI Guide",
+  name: "Yollo AI",
   domain: "yolloai.fun",
   url: "https://yolloai.fun",
   description: "An independent Yollo AI guide to AI roleplay, character creation, image and video generation, privacy, regional availability, pricing, and alternatives.",

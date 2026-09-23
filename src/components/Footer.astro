@@ -6,9 +6,9 @@ interface Props { posts: CollectionEntry<"blog">[]; }
 const { posts } = Astro.props;
 ---
 <footer><div class="footer-grid">
-  <div><a class="brand" href="/"><span class="brand-icon">Y</span><strong>Yollo<span>AI</span></strong><small>INDEPENDENT GUIDE</small></a><p>Independent research on Yollo AI roleplay, characters, image and video generation, privacy, regional availability, pricing, safety, and alternatives.</p></div>
+  <div><a class="brand" href="/"><span class="brand-icon">Y</span><strong>Yollo<span>AI</span></strong></a><p>Independent research on Yollo AI roleplay, characters, image and video generation, privacy, regional availability, pricing, safety, and alternatives.</p></div>
   <div><h3>Explore</h3><a href="/#features">Yollo AI features</a><a href="/#compare">Roleplay comparisons</a><a href="/#privacy">Privacy checklist</a><a href={site.officialUrl} rel="noopener" target="_blank">Official website <Icon name="arrow" /></a></div>
   <div><h3>Latest guides</h3>{posts.slice(0,3).map((post)=><a href={`/blog/${post.id}/`}>{post.data.title}</a>)}</div>
   <div><h3>Information</h3><a href="/about/">About</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/editorial-policy/">Editorial policy</a><a href="/contact/">Contact</a></div>
-</div><div class="footer-bottom"><span>© <span data-year>2026</span> Yollo AI Guide</span><span>Independent · Not affiliated with Yollo AI</span><span>Adults only · No chat data collected</span></div></footer>
+</div><div class="footer-bottom"><span>© <span data-year>2026</span> Yollo AI</span><span>Independent · Not affiliated with Yollo AI</span><span>Adults only · No chat data collected</span></div></footer>
 
