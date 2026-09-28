@@ -32,8 +32,8 @@ export const sourceLinks: Record<ComparisonKey, { name: string; url: string }[]>
   ],
 };
 
-// Source-only draft. Do not create routes or advertise hreflang until all 45 articles exist.
-export const comparisonArticles: Partial<Record<Locale, Record<ComparisonKey, YolloArticle>>> = {
+// Source-only data. Routes and hreflang must not be advertised until full-page SEO/render QA passes.
+export const comparisonArticles: Record<Locale, Record<ComparisonKey, YolloArticle>> = {
   ja: {
     "character-ai": {
       title:"Yollo AI vs Character.AI：映像まで進めるか、会話世界を深めるか",
@@ -218,7 +218,7 @@ export const comparisonArticles: Partial<Record<Locale, Record<ComparisonKey, Yo
       verdict:"여러 캐릭터를 탐색하고 대화에서 이미지·짧은 영상으로 옮기는 흐름이 필요하다면 Yollo AI를 시험하세요. 동반자 한 명을 설계해 채팅·음성·이미지·영상에서 계속 사용하려면 Candy AI가 유력한 비교 대상입니다. 두 곳 모두 매체 간 일관성과 유료 재시도를 확인한 뒤 결정하는 것이 좋습니다."
     }
   },
-  "zh-Hant": {
+  "zh-hant": {
     "character-ai": {
       title:"Yollo AI vs Character.AI：把角色做成影片，還是把對話世界寫深",
       description:"比較 Yollo AI 與 Character.AI 的角色對話、Lorebook、未成年保護、圖片與影片，以及實際花費。",
@@ -402,7 +402,7 @@ export const comparisonArticles: Partial<Record<Locale, Record<ComparisonKey, Yo
       verdict:"Si disfrutas descubriendo diversos personajes y quieres llevar una conversación a imágenes y vídeos breves, prueba Yollo AI. Si prefieres crear una compañera y mantenerla en chat, voz e imagen, Candy AI merece una comparación directa. Comprueba continuidad y coste de los reintentos en ambos antes de suscribirte."
     }
   },
-  "pt-BR": {
+  "pt-br": {
     "character-ai": {
       title:"Yollo AI vs Character.AI: levar personagens ao vídeo ou aprofundar o universo da conversa",
       description:"Compare Yollo AI e Character.AI por conversa, Lorebook, segurança para menores, imagens, vídeos, privacidade e custo.",
@@ -492,6 +492,374 @@ export const comparisonArticles: Partial<Record<Locale, Record<ComparisonKey, Yo
         ["Compartilhar e apagar conteúdo","Os termos do Yollo AI tratam da escolha de publicar obras e de licenças sobre conteúdo gerado pelo usuário. Antes de compartilhar um personagem ou imagem, confira os controles. Consulte separadamente as políticas de privacidade, exclusão e pagamento do Candy AI. Não use rosto ou voz de pessoas reais sem autorização nem contorne as regras regionais do Yollo."]
       ],
       verdict:"Se você gosta de explorar diferentes personagens e transformá-los de conversa em imagem e vídeo curto, teste o Yollo AI. Se prefere criar uma companhia e mantê-la em chat, voz e imagem, compare o Candy AI diretamente. Nos dois casos, confirme consistência entre formatos e custo das novas tentativas antes de assinar."
+    }
+  },
+  ru: {
+    "character-ai": {
+      title:"Yollo AI и Character.AI: визуальная сцена или глубокий диалог с персонажем",
+      description:"Сравнение Yollo AI и Character.AI: диалог, Lorebook, возрастные правила, изображения, видео, конфиденциальность и расходы.",
+      intro:"Оба сервиса позволяют общаться с вымышленными персонажами, но ведут к разным результатам. Yollo AI предлагает перейти от настройки героя к изображениям и коротким видео. Character.AI делает упор на разговоры, голоса и сюжетные миры; компания отдельно рассказывает о Lorebook и правилах безопасности для разных возрастных групп.",
+      dimensions:[
+        ["Главная задача","Продолжить диалог изображением и коротким видео","Общаться с героями и развивать мир истории"],
+        ["Последовательность","Проверить характер и память в текущем аккаунте","Уточнить доступ к описанию героя, голосам и Lorebook"],
+        ["Безопасность","Взрослые вымышленные герои, видимость, регион","Ограничения открытого чата для несовершеннолетних"],
+        ["Расходы","Посчитать генерации, неудачные попытки и подписку","Проверить актуальные условия платного Lorebook"]
+      ],
+      sections:[
+        ["Проверяйте одинаковую сцену, а не число героев","Придумайте взрослому вымышленному персонажу цель и небольшой конфликт. Проведите в каждом сервисе около двенадцати обменов репликами и отметьте, сохраняет ли герой манеру речи, движется ли сюжет и помнит ли он ранее названную деталь. Количество персонажей у Character.AI и число рекламируемых моделей у Yollo AI сами по себе не показывают качество разговора."],
+        ["Lorebook не означает идеальную память","Согласно официальному описанию Character.AI, Lorebook подгружает сведения о мире по ключевым словам; сначала функция была бета-версией для платных пользователей. Это не обещание помнить каждую реплику вечно. Заявленную Yollo AI долговременную память тоже стоит проверить: назовите вымышленное место, смените тему и позже спросите о нем без подсказки."],
+        ["Медиа и возрастные правила — разные критерии","Создайте в Yollo AI изображение и короткое видео с одним персонажем и предметом. Сравните лицо, фон, время ожидания и стоимость повторной попытки. Character.AI нельзя без оснований называть чисто текстовым сервисом, но и равный процесс видеогенерации предполагать нельзя. В официальном сообщении 2026 года компания описала прекращение открытого чата для пользователей младше 18 лет и меры определения возраста."],
+        ["Регион, данные и оплата","Условия Yollo AI запрещают пользоваться сервисом людям, находящимся или проживающим в материковом Китае либо Гонконге. Реклама обещает бесплатный доступ без регистрации, но условия предусматривают регистрацию, подписки и плату за использование. Сверяйте стоимость с текущим экраном оплаты. В обоих сервисах проверьте публичность персонажей и удаление переписки; не используйте настоящие секреты для теста."]
+      ],
+      verdict:"Если нужен переход от разговора к изображениям и коротким видео и вы отвечаете региональным и платежным условиям, попробуйте Yollo AI. Если важнее диалог, голоса и мир с Lorebook, ориентируйтесь на Character.AI. Выбирайте по итогам одной и той же вымышленной сцены, а не по перечню функций."
+    },
+    "janitor-ai": {
+      title:"Yollo AI и Janitor AI: готовая визуальная сцена или история с вашим участием",
+      description:"Чем различаются Yollo AI и Janitor AI по героям, интерактивному сюжету, сценариям, Lorebook, медиа, данным и оплате.",
+      intro:"Yollo AI связывает ролевой диалог с изображениями и короткими видео. Официальная страница Android-приложения Janitor AI описывает истории, в которых читатель общается с героями и влияет на события; в обновлениях 2026 года упомянуты сценарии и Lorebook. Однако страница приложения не подтверждает одинаковые возможности для каждого тарифа и веб-версии.",
+      dimensions:[
+        ["Начало","Выбрать или создать героя и визуализировать эпизод","Выбрать жанр и героя, участвовать в сюжете"],
+        ["Инструменты","Проверить настройку героя и моделей в аккаунте","Проверить доступность сценариев и Lorebook"],
+        ["Медиа","Официальный сайт описывает изображения и короткие видео","Описание приложения не доказывает наличие равного видеофункционала"],
+        ["Платежи","Сопоставить рекламу бесплатности с условиями","Посмотреть покупки внутри приложения и лимиты"]
+      ],
+      sections:[
+        ["Развивать сюжет или получить отдельный кадр","Разработчик Janitor AI описывает жанры вроде романтики и фэнтези и участие читателя в истории. Yollo AI объединяет поиск и создание героев с визуальной генерацией. Если нужен разветвленный сюжет, смотрите на инициативу персонажа и выбор действий; если нужен готовый эпизод, оценивайте узнаваемость героя и обстановки на нескольких изображениях."],
+        ["Что действительно подтверждают обновления","В журнале официального приложения есть сценарии и Lorebook, но это не гарантия одинакового редактора для бесплатных аккаунтов и сайта. Старые инструкции по подключению внешнего API также не доказывают, что теперь он обязателен всем пользователям Janitor AI. Откройте меню и тариф именно той версии, которой собираетесь пользоваться."],
+        ["Один герой и две разные цели теста","Представьте взрослую вымышленную кураторку, готовящую ночную выставку. Назовите обеим системам выставку, ключ и срок, а спустя несколько реплик переспросите. В Janitor AI оценивайте движение сюжета и доступные инструменты мира. В Yollo AI проверяйте, узнаются ли тот же герой и предметы в изображении и видео. Это метод для читателя, а не якобы измеренные нами результаты."],
+        ["Конфиденциальность и недельный бюджет","Официальная страница Janitor AI в Google Play показывает встроенные покупки и возможный сбор отдельных личных и пользовательских данных. Условия Yollo AI допускают подписку и плату за использование, а также исключают людей, находящихся или проживающих в материковом Китае и Гонконге. Узнайте настройки видимости, путь удаления данных и стоимость обычной недели." ]
+      ],
+      verdict:"Для длительного интерактивного сюжета проверьте сценарии и Lorebook, которые доступны вам сегодня в Janitor AI. Чтобы перенести одного героя из диалога в изображение и короткое видео, испытайте процесс Yollo AI. Не делайте вывод только по старой инструкции об API или обещанию бесплатного доступа."
+    },
+    "spicychat-ai": {
+      title:"Yollo AI и SpicyChat AI: визуальная цельность или управление миром через Lorebook",
+      description:"Сравнение Lorebook, семантической памяти, долгих диалогов, изображений, видео, приватности и цены Yollo AI и SpicyChat AI.",
+      intro:"Оба сервиса подходят для историй со взрослыми вымышленными персонажами. Yollo AI предлагает продолжать диалог в изображениях и коротких видео. Документация SpicyChat AI подробно описывает чаты с героями, вызываемый ключевыми словами Lorebook и отдельную функцию Semantic Memory. Фраза «у обоих есть память» скрывает важные различия.",
+      dimensions:[
+        ["Основной процесс","Связать беседу с изображением и коротким видео","Вести беседу и хранить правила вымышленного мира"],
+        ["Вызов сведений","Проверить персонажа и память вопросами позже","Вызывать записи Lorebook ключевыми словами"],
+        ["Длинный диалог","Испытать рекламируемую долговременную память","Отличать текущий контекст, Lorebook и Semantic Memory"],
+        ["Цена","Учитывать модель, генерации и повторные попытки","Уточнить условия доступа к памяти и моделям"]
+      ],
+      sections:[
+        ["Где хранить правила истории","По документации SpicyChat, Lorebook позволяет отдельно записывать места, людей и правила, а затем добавлять нужные записи в контекст по ключевым словам. Это удобнее бесконечного вступления к персонажу, но слишком широкое слово может вызвать нерелевантные сведения. Проверяйте ограничения и доступ именно своего текущего тарифа."],
+        ["Три механизма вместо одного слова «память»","Semantic Memory в документации SpicyChat помогает управлять важными сведениями из прежних бесед. Это не тот же механизм, что видимый контекст последних реплик или Lorebook. Yollo AI тоже заявляет долговременную память, но открытые материалы не доказывают одинаковую технологию. Введите три вымышленных факта, смените тему и спросите о них позже."],
+        ["Оцените видео отдельно от текста","Yollo AI описывает создание изображений и коротких видео на основе персонажа. Одного красивого кадра недостаточно: повторите попытку, сравните лицо, одежду, предметы и стоимость неудачного результата. Не стоит без проверки нынешних функций объявлять SpicyChat исключительно текстовым сервисом; здесь сравниваются задокументированные рабочие процессы."],
+        ["Видимость, регион и расходы","У обоих сервисов выясните, публичны ли герои по умолчанию и как удалить чаты, память и работы. Yollo AI запрещает использование людям в материковом Китае и Гонконге либо их жителям, несмотря на рекламу бесплатности допускает плату. При подсчете бюджета учитывайте желаемые функции памяти и повторную генерацию видео."]
+      ],
+      verdict:"Если вы хотите проверить, сохраняется ли герой между чатом, изображением и коротким видео, начните с Yollo AI. Если нужно упорядочить локации и правила долгой истории, изучайте официальный Lorebook SpicyChat AI. Итог зависит от реального доступа, настроек данных и суммарных расходов."
+    },
+    "crushon-ai": {
+      title:"Yollo AI и CrushOn AI: оживить героя в видео или вести долгую общую историю",
+      description:"Сравнение Yollo AI и CrushOn AI по моделям, групповым сценам, World Card, контексту, памяти, бесплатности и визуальным результатам.",
+      intro:"Yollo AI описывает путь от диалога с героем к изображениям и коротким видео. CrushOn AI на официальном сайте выделяет длительные беседы, выбор моделей, сцены с несколькими героями и World Card. Это заявления продуктов, а не результаты наших испытаний. Сначала определите, нужен вам законченный визуальный эпизод или продолжающийся общий мир.",
+      dimensions:[
+        ["Цель","Перевести одного героя из чата в изображение и видео","Долго общаться с несколькими героями в одном мире"],
+        ["Управление","Настройка героя, изображение, короткое видео","Смена моделей, групповой чат, World Card"],
+        ["Проверка памяти","Спросить спустя время о вымышленных деталях","Разделять число сообщений, контекст и сохраненную память"],
+        ["Бесплатный доступ","Сверить рекламу с условиями оплаты","Отличить бесплатные модели от кредитов для премиальных"]
+      ],
+      sections:[
+        ["Кадр и общий мир — не одно и то же","В Yollo AI важно, сохраняются ли внешность и обстановка героя между беседой, изображением и видео. CrushOn AI рассказывает о нескольких персонажах в одной сцене, смене моделей и общем мире. Если ваш приоритет — коллективная история, одна кнопка видеогенерации у другого сервиса не делает его лучшим выбором."],
+        ["Разберите обещание «безлимита»","Официальная статья CrushOn разделяет число отправляемых сообщений, доступные модели, объем контекста для следующего ответа и отдельно сохраняемые сведения. Безлимитный чат не означает безлимитные премиальные модели или абсолютную память. Рекламируемую Yollo AI долговременную память проверяйте тем же приемом: назовите вымышленный факт и переспросите через много реплик."],
+        ["Проверка из двух этапов","Взрослый вымышленный астроном готовит выставку. Проведите в обоих сервисах двенадцать обменов и позже спросите название экспозиции и какой телескоп сломался. В Yollo AI создайте изображение и видео с тем же героем и предметом. В CrushOn, если тариф позволяет, добавьте второго участника и World Card. Это предложенный протокол, а не опубликованный нами рейтинг."],
+        ["Кредиты и личные сведения","CrushOn отдельно описывает общение с бесплатными моделями и кредиты для моделей высокого уровня. У Yollo AI смотрите условия подписки и использования, а не только рекламу «бесплатно». Не вводите реальные интимные данные, проверьте видимость и удаление; в бюджет включите модель, сообщения и неудачные генерации. Региональные ограничения Yollo также обязательны."]
+      ],
+      verdict:"Для изображения или короткого видео героя из чата изучите Yollo AI. Для долгого разговора, выбора моделей, нескольких героев и общего мира ближе CrushOn AI. Сравнивайте цену нужной именно вам конфигурации, а не общее обещание бесплатности."
+    },
+    "candy-ai": {
+      title:"Yollo AI и Candy AI: искать разных персонажей или создать одну спутницу",
+      description:"Сравните Yollo AI и Candy AI по поиску персонажей, чату, голосу, изображениям, видео, последовательности образа и расходам.",
+      intro:"Оба продукта предлагают не только текстовый разговор. Yollo AI позволяет просматривать или создавать разных вымышленных персонажей, а затем переходить к изображениям и коротким видео. Candy AI ведет пользователя через настройку одной спутницы и взаимодействие в чате, голосе, изображениях и видео. Разница — в начале работы и поддержании образа.",
+      dimensions:[
+        ["Начало","Найти готового героя или создать нового","Поэтапно настроить одну спутницу"],
+        ["Форматы","Перенести героя из беседы в изображение и видео","Связать чат, голос, изображения и видео"],
+        ["Стабильность","Сравнить внешность в нескольких эпизодах","Проверить голос, характер и лицо между форматами"],
+        ["Бюджет","Сверить рекламу бесплатности с платными условиями","Проверить подписку и дополнительные токены"]
+      ],
+      sections:[
+        ["Исследовать каталог или конструировать образ","Yollo AI делает акцент на поиске и создании героев, настройке личности и выборе моделей. Это может подойти тем, кто сначала пробует разные сюжеты. Candy AI направляет создание одной спутницы шаг за шагом. Удобный конструктор сам по себе не гарантирует живой беседы: используйте один взрослый вымышленный образ в обоих."],
+        ["Candy AI тоже предлагает голос и видео","Официальный сайт Candy AI прямо перечисляет голосовое общение, персональные изображения и видео. Поэтому утверждение «только Yollo создает визуальный контент» неверно. Побеседуйте, сделайте изображение и короткое видео одного героя в обеих системах; в Candy дополнительно испытайте голос. Отмечайте узнаваемость лица, манеры речи и предметов."],
+        ["Считайте неделю использования, а не цену на баннере","Yollo AI рекламирует бесплатный доступ без регистрации, но условия разрешают подписки и плату за использование. Candy AI предлагает подписку и дополнительную покупку токенов. Сложите обычные сообщения, голос, изображения, видео и неудачные повторные генерации. Актуальную цену подтверждает экран оплаты, не старая обзорная статья."],
+        ["Публикация и удаление","Условия Yollo AI описывают выбор публикации работ и лицензии на контент пользователя; прежде чем делиться героем или изображением, изучите настройки. Политику приватности, удаления и оплаты Candy AI проверяйте отдельно. Не копируйте лицо или голос реального человека без разрешения и не обходите запрет Yollo для материкового Китая и Гонконга."]
+      ],
+      verdict:"Если вам интересно изучать разных героев и превращать беседу в изображения и короткие видео, проверьте Yollo AI. Если нужна одна спутница для чата, голоса и визуальных форматов, сравните Candy AI. В обоих случаях оцените стабильность образа и платные повторные попытки до подписки."
+    }
+  },
+  de: {
+    "character-ai": {
+      title:"Yollo AI vs Character.AI: Figuren als Video erleben oder Gesprächswelten vertiefen",
+      description:"Yollo AI und Character.AI im Vergleich: Rollenspiel, Lorebook, Jugendschutz, Bilder, Videos, Datenschutz und Kosten.",
+      intro:"Beide Dienste beginnen mit Gesprächen mit fiktiven Figuren, führen aber nicht zum selben Ergebnis. Yollo AI beschreibt einen Weg von der Figurengestaltung zu Bildern und kurzen Videos. Character.AI setzt stärker auf Dialoge, Stimmen und erzählte Welten; der Anbieter erläutert außerdem Lorebook und altersabhängige Sicherheitsregeln.",
+      dimensions:[
+        ["Ergebnis","Gespräche in Bilder und kurze Videos überführen","Mit Figuren sprechen und Erzählwelten gestalten"],
+        ["Kontinuität","Persönlichkeit und Gedächtnis im aktuellen Konto prüfen","Figurendefinitionen, Stimmen und Lorebook-Zugang prüfen"],
+        ["Sicherheit","Erwachsene fiktive Figuren, Sichtbarkeit, Region","Einschränkungen offener Chats für Minderjährige"],
+        ["Kosten","Generierungen, Fehlversuche und Abos getrennt erfassen","Aktuelle Bedingungen für Lorebook und Bezahlfunktionen prüfen"]
+      ],
+      sections:[
+        ["Die gleiche Szene statt Kataloggrößen vergleichen","Geben Sie einer erwachsenen fiktiven Figur ein Ziel und einen kleinen Konflikt. Führen Sie bei beiden Diensten etwa zwölf Gesprächsrunden und notieren Sie, ob Tonfall, Erzählinitiative und ein zuvor genanntes Detail erhalten bleiben. Die Zahl der Figuren bei Character.AI oder der beworbenen Modelle bei Yollo AI sagt darüber allein wenig aus. Wer ein Video braucht, bewertet zusätzlich das Bildmaterial."],
+        ["Lorebook ist kein perfektes Langzeitgedächtnis","Laut Character.AI lädt Lorebook Weltwissen anhand bestimmter Schlüsselwörter nach; zum Start war es eine Beta für zahlende Mitglieder. Es verspricht nicht, jede Nachricht dauerhaft zu behalten. Das von Yollo AI beworbene Langzeitgedächtnis lässt sich ebenfalls nur praktisch prüfen: Nennen Sie einen erfundenen Ort, wechseln Sie das Thema und fragen Sie später ohne Hinweis danach."],
+        ["Medien und Altersregeln getrennt betrachten","Erzeugen Sie bei Yollo AI ein Bild und ein kurzes Video mit derselben Figur und demselben Gegenstand. Prüfen Sie Gesicht, Umgebung, Wartezeit und Kosten eines erneuten Versuchs. Character.AI pauschal als reinen Textdienst zu bezeichnen wäre falsch; einen gleichwertigen Videoworkflow anzunehmen ebenso. In einer offiziellen Mitteilung von 2026 erklärt Character.AI das Ende offener Chats für unter 18-Jährige und weitere Maßnahmen zur Altersprüfung."],
+        ["Region, Daten und Bezahlung","Die Yollo-AI-Bedingungen untersagen die Nutzung durch Personen, die sich in Festlandchina oder Hongkong aufhalten oder dort wohnen. Die Werbung hebt kostenlosen Zugang ohne Anmeldung hervor; die Bedingungen sehen dennoch Registrierung, Abonnements und Nutzungsgebühren vor. Prüfen Sie den aktuellen Bezahlbildschirm. Klären Sie bei beiden Angeboten Sichtbarkeit und Löschung von Figuren und Chats; echte Geheimnisse gehören nicht in Tests."]
+      ],
+      verdict:"Möchten Sie aus einem Dialog Bilder und kurze Videos machen und erfüllen Sie die regionalen und finanziellen Voraussetzungen, ist Yollo AI einen Versuch wert. Stehen Gespräche, Stimmen und Weltgestaltung per Lorebook im Vordergrund, ist Character.AI der passendere Maßstab. Entscheiden Sie anhand derselben fiktiven Szene, nicht anhand einer Funktionsliste."
+    },
+    "janitor-ai": {
+      title:"Yollo AI vs Janitor AI: eine visuelle Szene oder eine Geschichte zum Mitgestalten",
+      description:"Vergleich von Yollo AI und Janitor AI zu Figuren, interaktiver Handlung, Skripten, Lorebook, Medien, Daten und Ausgaben.",
+      intro:"Yollo AI verbindet Rollenspiele mit Bildern und kurzen Videos. Der offizielle Android-Eintrag von Janitor AI beschreibt dagegen Geschichten, in denen Leserinnen und Leser mit Figuren sprechen und den Verlauf beeinflussen; das Update von 2026 nennt Skripte und Lorebook. Aus dem App-Eintrag folgt nicht, dass alle Funktionen in jedem Tarif oder im Web identisch verfügbar sind.",
+      dimensions:[
+        ["Einstieg","Figur wählen oder erstellen und Szene visualisieren","Genre und Figur wählen, Handlung mitgestalten"],
+        ["Werkzeuge","Persona und Modelle im aktuellen Konto testen","Tatsächlichen Zugriff auf Skripte und Lorebook prüfen"],
+        ["Medien","Offizielle Website beschreibt Bilder und kurze Videos","App-Beschreibung belegt keinen gleichwertigen Videoworkflow"],
+        ["Preis","Kostenloswerbung mit Bedingungen abgleichen","In-App-Käufe und Grenzen prüfen"]
+      ],
+      sections:[
+        ["Handlung mitgestalten oder eine Szene festhalten","Der Entwickler von Janitor AI stellt Genres wie Romantik und Fantasy sowie das Mitwirken an einer Geschichte in den Mittelpunkt. Bei Yollo AI stehen Figurensuche und -erstellung neben visueller Generierung. Wer Verzweigungen möchte, achtet auf Eigeninitiative und Wahlmöglichkeiten. Wer ein fertiges Motiv braucht, prüft, ob Figur und Umgebung über mehrere Bilder hinweg erkennbar bleiben."],
+        ["Was die offiziellen Updates tatsächlich belegen","Im Änderungsprotokoll der App stehen Skripte und Lorebook. Ob dieselben Editoren im kostenlosen Konto oder im Web verfügbar sind, bleibt daraus offen. Umgekehrt lässt sich aus älteren Anleitungen zu externen APIs nicht schließen, dass heute alle Janitor-Nutzenden zwingend eine API selbst einrichten müssen. Entscheidend ist die Oberfläche des Tarifs, den Sie verwenden möchten."],
+        ["Ein identischer Ausgangspunkt, zwei Prüfziele","Eine erwachsene fiktive Kuratorin bereitet eine nächtliche Ausstellung vor. Geben Sie beiden Diensten Ausstellungsname, Schlüssel und Termin und fragen Sie nach einigen Runden erneut danach. Bei Janitor beurteilen Sie Handlung und verfügbare Weltwerkzeuge; bei Yollo AI die Wiedererkennbarkeit von Figur und Gegenständen in Bild und Video. Das ist eine Testanleitung, kein von uns gemessener Vergleichssieg."],
+        ["Datenschutz und Wochenbudget","Der offizielle Google-Play-Eintrag von Janitor AI zeigt In-App-Käufe und mögliche Erhebung bestimmter personenbezogener sowie Nutzungsdaten. Yollo AI erlaubt in seinen Bedingungen Abonnements und Nutzungsentgelte und schließt Personen in Festlandchina oder Hongkong aus. Klären Sie bei beiden Diensten Sichtbarkeit, Löschweg und die Kosten einer typischen Woche."]
+      ],
+      verdict:"Für lange interaktive Handlungen sollten Sie die aktuell verfügbaren Skript- und Lorebook-Werkzeuge von Janitor AI prüfen. Soll dieselbe Figur aus dem Chat in ein Bild und ein kurzes Video gelangen, testen Sie Yollo AI. Weder eine alte API-Anleitung noch das Wort „kostenlos“ ersetzt diesen Vergleich."
+    },
+    "spicychat-ai": {
+      title:"Yollo AI vs SpicyChat AI: visuelle Kontinuität oder Weltregeln im Lorebook",
+      description:"Yollo AI und SpicyChat AI im Vergleich: Lorebook, semantisches Gedächtnis, lange Chats, Bilder, Videos, Privatsphäre und Kosten.",
+      intro:"Beide Angebote kommen für Geschichten mit erwachsenen fiktiven Figuren infrage. Yollo AI bewirbt den Übergang vom Chat zu Bildern und kurzen Videos. Die Dokumentation von SpicyChat AI beschreibt Figuren-Chats, ein per Schlüsselwort aktiviertes Lorebook und die gesonderte Funktion Semantic Memory. „Beide haben ein Gedächtnis“ ist deshalb kein brauchbarer Vergleich.",
+      dimensions:[
+        ["Schwerpunkt","Dialoge mit Bildern und kurzen Videos verbinden","Mit Figuren sprechen und Weltregeln verwalten"],
+        ["Wissen abrufen","Persona und Erinnerung später konkret testen","Lorebook-Einträge durch Schlüsselwörter aktivieren"],
+        ["Lange Handlung","Beworbenes Langzeitgedächtnis nachprüfen","Kontext, Lorebook und optionales Semantic Memory trennen"],
+        ["Ausgaben","Modelle, Generierungen und Wiederholungen einrechnen","Aktuellen Tarif für Gedächtnis und Modelle prüfen"]
+      ],
+      sections:[
+        ["Wo Regeln einer Geschichte hingehören","Das offizielle SpicyChat-Lorebook ordnet Orte, Personen und Regeln in eigenen Einträgen; passende Schlüsselwörter bringen diese in den Chatkontext. So muss nicht die gesamte Welt in der ersten Nachricht stehen. Zu allgemeine Schlüsselwörter können jedoch unpassende Einträge auslösen. Prüfen Sie die Berechtigungen und Grenzen Ihres aktuellen Tarifs."],
+        ["Drei verschiedene Arten von Gedächtnis","Die Dokumentation zu Semantic Memory erläutert, wie wichtige Informationen aus früheren Gesprächen verwaltet werden. Das ist weder mit dem gerade sichtbaren Kontext noch mit Lorebook identisch. Yollo AI wirbt ebenfalls mit langfristigem Erinnern, doch öffentlich lässt sich daraus keine gleiche Technik ableiten. Setzen Sie drei erfundene Fakten, wechseln Sie das Thema und fragen Sie später gezielt nach."],
+        ["Video als eigenes Kriterium bewerten","Yollo AI stellt Bilder und kurze Videos rund um eine Figur vor. Ein ansprechendes erstes Bild reicht nicht: Wiederholen Sie die Generierung und vergleichen Sie Gesicht, Kleidung, Requisiten und Kosten eines misslungenen Ergebnisses. SpicyChat ohne Prüfung seiner aktuellen Medienfunktionen als ausschließlich textbasiert zu bezeichnen wäre ebenfalls unbegründet."],
+        ["Sichtbarkeit, Standort und Budget","Finden Sie bei beiden Diensten heraus, ob Figuren standardmäßig öffentlich sind und wie Chats, Gedächtnisinhalte und Werke entfernt werden. Yollo AI untersagt die Nutzung in Festlandchina und Hongkong sowie durch dort Ansässige; trotz Kostenloswerbung können Kosten entstehen. Kalkulieren Sie gewünschte Gedächtnisfunktionen und zusätzliche Videoversuche mit ein."]
+      ],
+      verdict:"Soll eine Figur über Chat, Bild und kurzes Video hinweg erkennbar bleiben, testen Sie Yollo AI. Geht es um Orte und Regeln einer langen Geschichte, ist das dokumentierte Lorebook von SpicyChat AI besonders relevant. Prüfen Sie den tatsächlichen Zugang, Datenschutz und Gesamtausgaben vor der Entscheidung."
+    },
+    "crushon-ai": {
+      title:"Yollo AI vs CrushOn AI: eine Figur visualisieren oder eine gemeinsame Welt weiterschreiben",
+      description:"Vergleich von Yollo AI und CrushOn AI zu Modellen, Gruppenszenen, World Card, Kontext, Gedächtnis, Gratiszugang und Medien.",
+      intro:"Yollo AI beschreibt einen Weg vom Figurengespräch zu Bildern und kurzen Videos. CrushOn AI wirbt auf seiner offiziellen Website mit langen Chats, Modellauswahl, mehreren Figuren und World Card. Das sind Anbieterangaben, keine von uns gemessenen Ergebnisse. Entscheidend ist, ob Sie eine visuelle Szene oder eine fortlaufende gemeinsame Erzählwelt wollen.",
+      dimensions:[
+        ["Ziel","Eine Figur aus dem Chat in Bild und Video übertragen","Mit mehreren Figuren lange in einer Welt sprechen"],
+        ["Steuerung","Persona, Bilder und kurze Videos","Modellwechsel, Gruppenszenen und World Card"],
+        ["Erinnerung","Fiktive Fakten erst später erneut abfragen","Nachrichten, Kontext und gespeicherte Erinnerungen trennen"],
+        ["Gratisumfang","Werbung mit möglichen Gebühren abgleichen","Kostenlose Modelle von Credits für andere Modelle unterscheiden"]
+      ],
+      sections:[
+        ["Ein fertiges Bild ist keine gemeinsame Welt","Bei Yollo AI zählt, ob Figur, Kleidung und Ort aus dem Gespräch in Bild und Video wiedererkennbar sind. CrushOn AI beschreibt mehrere Figuren in einem gemeinsamen Szenario, Wechsel zwischen Modellen und längere Unterhaltungen. Wer vor allem eine Gruppenhandlung braucht, sollte einen Videoknopf bei einem anderen Anbieter nicht automatisch höher bewerten."],
+        ["„Unbegrenzt“ ist keine einheitliche Eigenschaft","Ein offizieller CrushOn-Beitrag unterscheidet die Zahl versendbarer Nachrichten, verfügbare Modelle, den Kontext für die nächste Antwort und separat bewahrte Erinnerungen. Unbegrenztes Chatten garantiert weder unbegrenzte Premium-Modelle noch lückenloses Gedächtnis. Testen Sie das Langzeitgedächtnis von Yollo AI ebenfalls mit einem erfundenen Fakt nach vielen Gesprächsrunden."],
+        ["Ein fairer Test in zwei Schritten","Ein erwachsener fiktiver Astronom bereitet eine Ausstellung vor. Sprechen Sie auf beiden Plattformen zwölf Runden und fragen Sie dann nach dem Ausstellungsnamen und einem defekten Teleskop. Bei Yollo erzeugen Sie Bild und Video mit derselben Person und dem Gerät. Bei CrushOn können Sie, falls Ihr Tarif es erlaubt, eine zweite Figur und eine World Card ergänzen. Das ist eine Methode, kein von uns erhobenes Ranking."],
+        ["Credits und private Gespräche","CrushOn trennt freie Modelle von Credits für höherwertige Optionen. Bei Yollo AI sollten Sie Abos und Nutzungsgebühren in den Bedingungen lesen, nicht nur den Gratis-Slogan. Vermeiden Sie persönliche Geheimnisse realer Menschen, prüfen Sie Veröffentlichung und Löschung und rechnen Sie Modelle, Nachrichten und Medien-Wiederholungen zusammen. Beachten Sie die regionalen Yollo-Regeln."]
+      ],
+      verdict:"Für ein Bild oder kurzes Video der Figur aus Ihrem Chat prüfen Sie Yollo AI. Für lange Gespräche, Modellwahl, mehrere Figuren und gemeinsame Welten ist CrushOn AI der naheliegendere Vergleich. Entscheidend ist der Preis Ihrer tatsächlich benötigten Konfiguration, nicht eine pauschale Gratisbehauptung."
+    },
+    "candy-ai": {
+      title:"Yollo AI vs Candy AI: viele Figuren entdecken oder eine Begleiterin gestalten",
+      description:"Yollo AI und Candy AI im Vergleich: Figurensuche, Chat, Stimme, Bilder, Video, Wiedererkennbarkeit, Daten und Kosten.",
+      intro:"Beide Dienste bieten mehr als reine Textnachrichten. Bei Yollo AI kann man unterschiedliche fiktive Figuren entdecken oder erstellen und anschließend Bilder und kurze Videos erzeugen. Candy AI führt eher durch die Gestaltung einer einzelnen Begleiterin und verbindet Chat, Stimme, Bilder und Video. Der Unterschied liegt im Einstieg und in der dauerhaften Konsistenz der Figur.",
+      dimensions:[
+        ["Einstieg","Bestehende Figuren erkunden oder selbst erstellen","Eine Begleiterin schrittweise gestalten"],
+        ["Medien","Chatfigur in Bild und kurzes Video übertragen","Chat, Stimme, Bild und Video verbinden"],
+        ["Beständigkeit","Aussehen über mehrere Szenen vergleichen","Stimme, Charakter und Aussehen medienübergreifend prüfen"],
+        ["Budget","Gratiswerbung und Bezahlbedingungen abgleichen","Abo und zusätzliche Tokenkäufe prüfen"]
+      ],
+      sections:[
+        ["Erkunden oder gezielt gestalten","Yollo AI stellt Figurensuche und -erstellung, Persönlichkeitsmerkmale und Modellauswahl heraus. Das passt möglicherweise zu Menschen, die erst verschiedene Grundideen ausprobieren möchten. Candy AI begleitet das Anlegen einer bestimmten Begleiterin Schritt für Schritt. Ein klarer Konfigurator beweist allerdings noch kein natürliches Gespräch; testen Sie dieselbe erwachsene fiktive Figur bei beiden."],
+        ["Candy AI kann ebenfalls Stimme und Video","Die offizielle Candy-AI-Seite nennt ausdrücklich Sprachinteraktion, personalisierte Bilder und Videos. Die Aussage, nur Yollo könne visuelle Medien erzeugen, wäre daher falsch. Unterhalten Sie sich mit derselben Figur und erstellen Sie Bild und Kurzvideo auf beiden Plattformen; bei Candy prüfen Sie zusätzlich die Stimme. Vergleichen Sie Gesicht, Ausdruck und Gegenstände zwischen den Formaten."],
+        ["Eine Woche statt nur den Monatspreis rechnen","Yollo AI wirbt mit kostenlosem Zugang ohne Anmeldung, während die Bedingungen Abos und Nutzungsgebühren vorsehen. Candy AI nennt Abonnements und zusätzliche Tokenkäufe. Addieren Sie übliche Gespräche, Stimme, Bilder, Videos und missglückte Generierungen. Verbindliche aktuelle Preise sehen Sie erst auf dem Bezahlbildschirm, nicht in älteren Bewertungen."],
+        ["Veröffentlichen und Entfernen","Yollo-AI-Bedingungen sprechen über die Wahl, Werke zu veröffentlichen, und Nutzungsrechte an erzeugten Inhalten. Prüfen Sie die Einstellungen, bevor Sie eine Figur oder ein Bild teilen. Datenschutz-, Lösch- und Zahlungsregeln von Candy AI müssen separat gelesen werden. Nutzen Sie Gesicht oder Stimme realer Personen nicht ohne Einwilligung und umgehen Sie keine regionalen Yollo-Beschränkungen."]
+      ],
+      verdict:"Wenn Sie viele Figuren ausprobieren und Gespräche in Bilder oder kurze Videos übertragen möchten, testen Sie Yollo AI. Wollen Sie eine Begleiterin gestalten und über Chat, Stimme und visuelle Medien hinweg nutzen, vergleichen Sie Candy AI. Bei beiden zählen Wiedererkennbarkeit und Kosten für erneute Versuche vor Abschluss eines Abos."
+    }
+  },
+  fr: {
+    "character-ai": {
+      title:"Yollo AI vs Character.AI : créer une scène en vidéo ou approfondir un univers de dialogue",
+      description:"Comparer Yollo AI et Character.AI sur les échanges, Lorebook, la protection des mineurs, les images, la vidéo et les coûts.",
+      intro:"Les deux services proposent de parler avec des personnages fictifs, mais leur aboutissement diffère. Yollo AI présente un parcours allant de la création d'un personnage aux images et courtes vidéos. Character.AI privilégie les échanges, les voix et les univers narratifs ; l'entreprise détaille aussi Lorebook et ses mesures de sécurité selon l'âge.",
+      dimensions:[
+        ["Résultat recherché","Passer du dialogue à l'image et à la courte vidéo","Converser avec des personnages et bâtir un univers"],
+        ["Continuité","Tester personnalité et mémoire sur son compte","Vérifier définitions, voix et accès à Lorebook"],
+        ["Sécurité","Personnages fictifs adultes, visibilité et territoire","Restrictions du dialogue libre pour les mineurs"],
+        ["Budget","Compter créations, essais ratés et abonnement","Vérifier les conditions actuelles de Lorebook"]
+      ],
+      sections:[
+        ["Comparer une même scène plutôt qu'un catalogue","Donnez à un personnage fictif adulte un objectif et un petit conflit. Échangez une douzaine de fois sur chaque service, puis notez s'il garde sa façon de parler, fait avancer l'histoire et retrouve un détail mentionné plus tôt. Le nombre de personnages chez Character.AI ou de modèles annoncés par Yollo AI ne démontre pas la qualité du dialogue. Si vous cherchez une vidéo, évaluez aussi la sortie visuelle."],
+        ["Lorebook n'est pas une mémoire parfaite","D'après Character.AI, Lorebook réinjecte des informations sur un univers lorsque certains mots-clés apparaissent ; la fonction a débuté en bêta pour des abonnés payants. Elle ne promet pas de conserver chaque message indéfiniment. La mémoire longue durée vantée par Yollo AI mérite le même contrôle : inventez un lieu, changez de sujet, puis redemandez-le sans indice."],
+        ["Évaluer séparément médias et règles d'âge","Dans Yollo AI, créez une image et une courte vidéo du même personnage avec le même accessoire. Vérifiez visage, décor, attente et coût d'un nouvel essai. Il serait inexact de réduire Character.AI au seul texte, mais tout autant de supposer un parcours vidéo équivalent. Son annonce officielle de 2026 décrit l'arrêt du chat libre pour les moins de 18 ans et des mécanismes d'estimation d'âge et de modération."],
+        ["Territoire, données et paiement","Les conditions de Yollo AI interdisent le service aux personnes situées ou résidant en Chine continentale ou à Hong Kong. La publicité met en avant la gratuité et l'absence d'inscription, tandis que les conditions prévoient inscription, abonnements et frais d'utilisation. Regardez l'écran de paiement actuel. Sur les deux plateformes, vérifiez la visibilité des personnages et la suppression des conversations ; n'utilisez pas de vrais secrets pour tester."]
+      ],
+      verdict:"Pour prolonger un personnage du dialogue vers des images et de courtes vidéos, si les règles territoriales et financières vous le permettent, essayez Yollo AI. Pour les voix, la conversation et les mondes organisés par Lorebook, Character.AI est le comparateur pertinent. Tranchez à partir d'une même scène fictive, pas d'un nombre de fonctions."
+    },
+    "janitor-ai": {
+      title:"Yollo AI vs Janitor AI : une scène visuelle ou une histoire à laquelle participer",
+      description:"Différences entre Yollo AI et Janitor AI : personnages, récit interactif, scripts, Lorebook, médias, données et prix.",
+      intro:"Yollo AI relie le jeu de rôle aux images et aux courtes vidéos. La fiche officielle de l'application Android Janitor AI décrit plutôt des histoires où l'on parle avec des personnages et influence le récit ; la mise à jour de 2026 évoque scripts et Lorebook. Cette fiche ne garantit pas les mêmes outils pour tous les comptes ni pour la version web.",
+      dimensions:[
+        ["Départ","Choisir ou créer un personnage puis visualiser une scène","Choisir genre et personnage pour prendre part au récit"],
+        ["Outils","Vérifier personnalité et modèles sur le compte actuel","Vérifier l'accès réel aux scripts et à Lorebook"],
+        ["Médias","Le site officiel présente images et courtes vidéos","La fiche de l'application ne prouve pas une vidéo équivalente"],
+        ["Dépenses","Confronter promesse de gratuité et conditions payantes","Consulter achats intégrés et plafonds"]
+      ],
+      sections:[
+        ["Faire avancer l'intrigue ou conserver une scène","L'éditeur de Janitor AI présente des genres comme la romance et la fantasy, avec un lecteur qui contribue au déroulement. Yollo AI rapproche recherche ou création de personnages et génération visuelle. Pour un récit à embranchements, observez l'initiative et les choix offerts. Pour une scène achevée, vérifiez si personnage et décor restent reconnaissables après plusieurs générations."],
+        ["Ce que prouve vraiment le journal des mises à jour","La mise à jour officielle mentionne scripts et Lorebook, sans garantir le même éditeur sur une formule gratuite ou sur le web. À l'inverse, d'anciens tutoriels consacrés à une API externe ne prouvent pas que tous les utilisateurs actuels de Janitor AI doivent en configurer une. Consultez les menus et le forfait que vous comptez réellement utiliser."],
+        ["Un scénario commun, deux critères de réussite","Imaginez une conservatrice fictive adulte préparant une exposition nocturne. Donnez aux deux services le nom de l'exposition, une clé et une échéance, puis reposez la question plusieurs échanges plus tard. Sur Janitor, étudiez la progression du récit et les outils de monde disponibles. Sur Yollo AI, voyez si personnage et objets restent identifiables en image et vidéo. C'est une méthode proposée, non une mesure réalisée par notre site."],
+        ["Confidentialité et coût d'une semaine","La fiche officielle Janitor AI sur Google Play signale des achats intégrés et la collecte possible de certaines données personnelles ou d'usage. Les conditions de Yollo AI admettent abonnements et frais d'utilisation, tout en excluant les personnes situées ou résidant en Chine continentale ou à Hong Kong. Vérifiez visibilité, suppression et budget d'une semaine ordinaire sur les deux."]
+      ],
+      verdict:"Pour participer longtemps à un récit interactif, examinez les scripts et Lorebook actuellement accessibles sur Janitor AI. Pour faire passer le même personnage du dialogue à l'image et à la courte vidéo, testez le parcours de Yollo AI. Un ancien tutoriel d'API ou le seul mot « gratuit » ne suffit pas à choisir."
+    },
+    "spicychat-ai": {
+      title:"Yollo AI vs SpicyChat AI : cohérence visuelle ou gestion d'univers avec Lorebook",
+      description:"Comparer Lorebook, mémoire sémantique, longs échanges, images, vidéos, confidentialité et coûts de Yollo AI et SpicyChat AI.",
+      intro:"Les deux services peuvent servir à raconter des histoires avec des personnages fictifs adultes. Yollo AI présente le passage de la discussion aux images et courtes vidéos. La documentation de SpicyChat AI explique les conversations avec personnages, un Lorebook déclenché par mots-clés et la fonction distincte Semantic Memory. Dire que « les deux ont une mémoire » masque l'essentiel.",
+      dimensions:[
+        ["Usage central","Relier dialogue, images et courtes vidéos","Converser et organiser les règles d'un monde"],
+        ["Rappel des faits","Tester personnalité et mémoire par des questions ultérieures","Appeler des entrées Lorebook avec des mots-clés"],
+        ["Long récit","Éprouver la mémoire longue durée annoncée","Distinguer contexte, Lorebook et Semantic Memory facultative"],
+        ["Prix","Inclure modèle, créations et nouveaux essais","Vérifier la formule actuelle pour mémoire et modèles"]
+      ],
+      sections:[
+        ["Où placer les règles de votre histoire","Selon la documentation de SpicyChat, Lorebook permet de séparer lieux, personnages et règles en entrées réintroduites dans le contexte par des mots-clés. On évite ainsi de tout entasser dans la première réplique. Un déclencheur trop large peut toutefois ramener une information hors sujet. Vérifiez les limites et autorisations du forfait utilisé."],
+        ["Trois mécanismes derrière le mot « mémoire »","La documentation de Semantic Memory décrit une gestion de faits importants tirés de conversations passées. Ce n'est ni la fenêtre de contexte immédiat ni Lorebook. Yollo AI vante aussi une mémoire durable, sans que les sources publiques permettent d'en déduire la même technique. Introduisez trois faits fictifs, changez de thème et interrogez-les plus tard pour juger l'utilité réelle."],
+        ["Noter les médias à part","Yollo AI montre des images et de courtes vidéos liées au personnage. Ne vous arrêtez pas à une première image séduisante : recommencez et comparez visage, vêtements, accessoires et coût d'un résultat manqué. N'affirmez pas non plus que SpicyChat est uniquement textuel sans consulter ses fonctions actuelles ; ici, on compare les parcours documentés."],
+        ["Visibilité, région et budget","Sur chaque plateforme, cherchez si un personnage est public par défaut et comment effacer échanges, souvenirs et créations. Yollo AI interdit contractuellement l'usage aux personnes présentes ou résidentes en Chine continentale ou à Hong Kong, tout en prévoyant des frais malgré son discours gratuit. Comptez les options de mémoire souhaitées et les reprises vidéo."]
+      ],
+      verdict:"Si vous souhaitez suivre un personnage du chat aux images et courtes vidéos, mettez Yollo AI à l'épreuve. Pour tenir les lieux et règles d'un long récit avec Lorebook, les outils documentés de SpicyChat AI sont plus ciblés. L'accès réel, la confidentialité et la dépense totale feront la différence."
+    },
+    "crushon-ai": {
+      title:"Yollo AI vs CrushOn AI : donner une vidéo à un personnage ou prolonger un monde partagé",
+      description:"Yollo AI face à CrushOn AI : modèles, scènes de groupe, World Card, contexte, mémoire, accès gratuit et création visuelle.",
+      intro:"Yollo AI présente un parcours du chat de personnage à l'image et à la courte vidéo. Le site officiel de CrushOn AI met en avant de longs échanges, le choix des modèles, plusieurs personnages et World Card. Ce sont des affirmations des fournisseurs, pas des résultats mesurés par notre rédaction. Définissez d'abord si vous cherchez une scène finie ou un récit collectif continu.",
+      dimensions:[
+        ["But","Faire passer un personnage du chat à l'image et la vidéo","Parler longtemps avec plusieurs personnages dans un même monde"],
+        ["Contrôles","Personnalité, images et vidéos brèves","Changer de modèle, groupe et World Card"],
+        ["Mémoire","Reposer plus tard une question sur des faits fictifs","Séparer messages, contexte et souvenirs enregistrés"],
+        ["Gratuité","Comparer publicité et clauses de paiement","Distinguer modèles gratuits et crédits des modèles supérieurs"]
+      ],
+      sections:[
+        ["Une image finie n'est pas un univers partagé","Pour Yollo AI, la question est de savoir si le personnage, ses vêtements et le décor de l'échange réapparaissent de manière cohérente dans l'image et la vidéo. CrushOn AI décrit plusieurs personnages, le changement de modèle et un monde commun. Si le collectif est central pour vous, un bouton de vidéo ailleurs ne suffit pas à déclarer l'autre service meilleur."],
+        ["« Illimité » recouvre plusieurs limites","Un article officiel de CrushOn distingue le nombre de messages, les modèles disponibles, le contexte reçu par la prochaine réponse et les faits sauvegardés séparément. Chat illimité ne veut donc pas dire modèles premium illimités ni mémoire parfaite. Testez aussi la mémoire vantée par Yollo AI en rappelant un fait fictif après de nombreux échanges."],
+        ["Une comparaison en deux temps","Un astronome fictif adulte prépare une exposition. Menez douze échanges de chaque côté, puis demandez le nom de l'exposition et quel télescope est en panne. Dans Yollo AI, créez une image et une vidéo avec les mêmes éléments. Dans CrushOn, si votre offre le permet, ajoutez un second personnage et une World Card. Il s'agit d'un protocole suggéré, pas d'un classement mesuré par nous."],
+        ["Crédits et vie privée","CrushOn distingue les conversations sur modèles gratuits des crédits nécessaires à des modèles plus avancés. Chez Yollo AI, lisez aussi les possibilités d'abonnement et de frais d'usage, au-delà du slogan gratuit. Évitez les secrets réels, contrôlez visibilité et suppression, puis additionnez modèle, messages et reprises de médias. Respectez les limites géographiques de Yollo."]
+      ],
+      verdict:"Pour obtenir une image ou une courte vidéo d'un personnage du chat, examinez Yollo AI. Pour de longs échanges, plusieurs modèles et personnages dans un monde partagé, CrushOn AI est plus directement comparable. Le prix pertinent est celui de votre usage concret, pas une promesse générale de gratuité."
+    },
+    "candy-ai": {
+      title:"Yollo AI vs Candy AI : découvrir plusieurs personnages ou créer une compagne sur mesure",
+      description:"Comparer Yollo AI et Candy AI : découverte, chat, voix, images, vidéos, cohérence d'un personnage, données et coût.",
+      intro:"Aucun des deux services ne se limite au texte. Yollo AI permet d'explorer ou de créer divers personnages fictifs, puis de produire des images et de courtes vidéos. Candy AI guide plutôt la conception d'une compagne que l'on retrouve dans le chat, la voix, l'image et la vidéo. L'enjeu est autant le mode de départ que la stabilité du personnage ensuite.",
+      dimensions:[
+        ["Départ","Explorer des personnages existants ou en créer un","Construire une compagne étape par étape"],
+        ["Médias","Passer du personnage discuté à l'image et la courte vidéo","Associer chat, voix, image et vidéo"],
+        ["Cohérence","Comparer l'apparence entre plusieurs scènes","Vérifier voix, caractère et visage selon le support"],
+        ["Dépenses","Confronter publicité gratuite et conditions payantes","Vérifier abonnement et achat supplémentaire de jetons"]
+      ],
+      sections:[
+        ["Explorer d'abord ou concevoir une personne","Yollo AI met en avant la recherche et la création de personnages, leur personnalité et le choix de modèles. Cela peut convenir à qui veut essayer différentes prémisses. Candy AI guide davantage la configuration d'une compagne précise. Un formulaire simple n'assure pas un dialogue naturel ; utilisez un même personnage fictif adulte pour juger les deux."],
+        ["Candy AI propose aussi voix et vidéo","La page officielle de Candy AI cite explicitement interactions vocales, images personnalisées et vidéo. Affirmer que seul Yollo crée des médias visuels serait faux. Discutez puis produisez image et vidéo du même personnage dans les deux services ; chez Candy, essayez aussi la voix. Notez si visage, façon de parler et accessoires restent reconnaissables d'un format à l'autre."],
+        ["Calculer une semaine d'usage","Yollo AI se présente comme gratuit et accessible sans inscription, alors que ses conditions permettent abonnements et frais d'utilisation. Candy AI parle d'abonnement et de jetons achetés en plus. Additionnez vos messages habituels, la voix, les images, les vidéos et les créations ratées. L'écran de paiement actuel prime sur un ancien prix cité dans un avis."],
+        ["Partager et supprimer","Les conditions de Yollo AI évoquent le choix de rendre des œuvres publiques et les licences sur les contenus créés par les utilisateurs ; consultez les réglages avant de partager. Les politiques de confidentialité, de suppression et de paiement de Candy AI demandent une vérification distincte. N'utilisez ni visage ni voix d'une personne réelle sans autorisation et ne contournez pas les restrictions géographiques de Yollo."]
+      ],
+      verdict:"Si vous aimez découvrir plusieurs personnages et prolonger leurs échanges en images et courtes vidéos, essayez Yollo AI. Si vous préférez façonner une compagne et l'utiliser dans le chat, la voix et les médias visuels, comparez Candy AI. Dans les deux cas, vérifiez cohérence et coût des nouvelles tentatives avant de payer."
+    }
+  },
+  ar: {
+    "character-ai": {
+      title:"Yollo AI أم Character.AI: مشهد مرئي أم عالم حواري أعمق؟",
+      description:"مقارنة Yollo AI وCharacter.AI في الحوار وLorebook وحماية القاصرين والصور والفيديو والخصوصية والتكلفة.",
+      intro:"تتيح الخدمتان التحدث مع شخصيات خيالية، لكنهما لا تقودان إلى النتيجة نفسها. يعرض Yollo AI مسارا من إنشاء الشخصية إلى الصور ومقاطع الفيديو القصيرة. أما Character.AI فيركز على المحادثة والأصوات وبناء العوالم القصصية، وينشر شرحا رسميا لميزة Lorebook وإجراءات السلامة بحسب العمر.",
+      dimensions:[
+        ["النتيجة الأساسية","نقل الحوار إلى صورة وفيديو قصير","التحدث مع الشخصيات وتطوير عالم القصة"],
+        ["استمرار التفاصيل","اختبار الشخصية والذاكرة في الحساب الحالي","التحقق من إعدادات الشخصيات والأصوات وتوفر Lorebook"],
+        ["السلامة","شخصيات خيالية بالغة وإعدادات الظهور والبلد","قيود المحادثة المفتوحة للقاصرين وآلية الاعتراض"],
+        ["الإنفاق","حساب التوليد وإعادة المحاولة والاشتراك","مراجعة شروط Lorebook والميزات المدفوعة حاليا"]
+      ],
+      sections:[
+        ["اختبر المشهد نفسه لا عدد الشخصيات","امنح شخصية خيالية بالغة هدفا وتعارضا صغيرا، ثم أجر نحو اثنتي عشرة جولة حوارية في كل خدمة. راقب ثبات أسلوبها، وقدرتها على دفع القصة، واسترجاع تفصيل ذكرته سابقا. كثرة شخصيات Character.AI أو النماذج المعلن عنها في Yollo AI لا تثبت جودة المحادثة. وإذا كان هدفك فيديو، فقيم النتيجة المرئية على حدة."],
+        ["Lorebook ليست ذاكرة بلا حدود","يوضح Character.AI أن Lorebook تستدعي معلومات عن العالم عند ظهور كلمات مفتاحية؛ وقد بدأت كنسخة تجريبية للمشتركين المدفوعين. هذا لا يعني حفظ كل رسالة إلى الأبد. كذلك تستحق الذاكرة طويلة الأمد التي يعلنها Yollo AI تجربة فعلية: اذكر مكانا خياليا، غيّر الموضوع، ثم اسأل عنه لاحقا دون تلقين الإجابة."],
+        ["افصل الوسائط عن سياسات العمر","أنشئ في Yollo AI صورة وفيديو قصيرا للشخصية نفسها مع غرض واحد، وقارن الوجه والخلفية ووقت الانتظار وتكلفة إعادة المحاولة. ليس دقيقا وصف Character.AI بأنه نص فقط، كما لا يصح افتراض توفر تجربة فيديو مماثلة فيه. إعلان الشركة الرسمي لعام 2026 يشرح إنهاء المحادثة المفتوحة لمن هم دون الثامنة عشرة وإجراءات تقدير العمر والإشراف."],
+        ["البلد والبيانات والدفع","تحظر شروط Yollo AI الاستخدام على الموجودين أو المقيمين في بر الصين الرئيسي أو هونغ كونغ. ورغم إبراز الوصول المجاني دون تسجيل في التسويق، تسمح الشروط بالتسجيل والاشتراك ورسوم الاستخدام. تحقق من شاشة الدفع الحالية. في الخدمتين، اعرف من يمكنه رؤية الشخصية وكيف تحذف المحادثة، ولا تستخدم أسرارا حقيقية في الاختبار."]
+      ],
+      verdict:"إذا كنت تريد نقل شخصية من الحوار إلى الصور والفيديو القصير، وتستوفي شروط الموقع والتكلفة، فاختبر Yollo AI. وإذا كانت الأولوية للأصوات والحوار وعالم منظم بواسطة Lorebook، فاجعل Character.AI معيار المقارنة. احكم على نتيجة المشهد الخيالي نفسه لا على قائمة الميزات."
+    },
+    "janitor-ai": {
+      title:"Yollo AI أم Janitor AI: لقطة بصرية أم قصة تشارك في صنعها؟",
+      description:"الفروق بين Yollo AI وJanitor AI في الشخصيات والسرد التفاعلي والنصوص وLorebook والوسائط والبيانات والدفع.",
+      intro:"يربط Yollo AI تقمص الأدوار بالصور ومقاطع الفيديو القصيرة. أما صفحة تطبيق Janitor AI الرسمية على أندرويد فتصف قصصا يتحدث فيها القارئ مع الشخصيات ويؤثر في أحداثها، وتذكر تحديثات عام 2026 النصوص وLorebook. لا تكفي صفحة التطبيق لإثبات توفر الأدوات نفسها لكل حساب أو على الويب.",
+      dimensions:[
+        ["نقطة البداية","اختيار شخصية أو إنشاؤها ثم تصوير مشهد","اختيار النوع والشخصية والمشاركة في السرد"],
+        ["أدوات التأليف","فحص إعداد الشخصية والنماذج في الحساب الحالي","فحص توفر النصوص وLorebook فعليا"],
+        ["الوسائط","يصف الموقع الرسمي صورا وفيديو قصيرا","وصف التطبيق لا يثبت فيديو مكافئا"],
+        ["التكلفة","مقارنة إعلان المجانية بشروط الدفع","مراجعة المشتريات داخل التطبيق والحدود"]
+      ],
+      sections:[
+        ["المشاركة في الحبكة ليست إنتاج لقطة","يقدم مطور Janitor AI أنواعا مثل الرومانسية والفانتازيا وتجربة يشارك فيها القارئ بتوجيه الأحداث. يجمع Yollo AI بين العثور على الشخصيات أو إنشائها وإنتاج الوسائط. إذا أردت قصة تتفرع، فراقب مبادرة الشخصية والخيارات المتاحة. وإذا أردت مشهدا نهائيا، فانظر هل تبقى الشخصية والمكان قابلين للتعرف عليهما بعد أكثر من توليد."],
+        ["ماذا تثبت سجلات التحديث؟","يذكر تحديث التطبيق الرسمي النصوص وLorebook، لكنه لا يضمن محررا مطابقا في الحساب المجاني أو نسخة المتصفح. وبالمقابل، لا تجعل الشروحات القديمة لإعداد واجهة API خارجية هذا الإعداد إلزاميا لجميع مستخدمي Janitor AI الآن. افحص قوائم النسخة والخطة اللتين ستستخدمهما بالفعل."],
+        ["اختبار واحد بنهايتين مختلفتين","تخيل أمينة متحف خيالية بالغة تحضر معرضا ليليا. اذكر اسم المعرض ومفتاحا وموعدا للخدمتين، ثم اسأل عن التفاصيل بعد عدة جولات. في Janitor AI، قيم تطور القصة وأدوات العالم المتاحة. وفي Yollo AI، تحقق من ظهور الشخصية والأغراض نفسها في الصورة والفيديو. هذه طريقة مقترحة للقراء وليست نتائج قياس ندعي أننا أجريناه."],
+        ["الخصوصية وميزانية أسبوع","تعرض صفحة Janitor AI الرسمية في Google Play مشتريات داخل التطبيق وإمكان جمع بعض بيانات الهوية والاستخدام. وتتيح شروط Yollo AI الاشتراكات ورسوم الاستخدام وتحظر الخدمة على الموجودين أو المقيمين في بر الصين الرئيسي أو هونغ كونغ. تحقق في كليهما من ظهور الشخصية ومسار حذف البيانات وتكلفة أسبوع عادي."]
+      ],
+      verdict:"إذا كانت غايتك قصة تفاعلية طويلة، فاختبر النصوص وLorebook المتاحين لك الآن في Janitor AI. وإذا أردت نقل الشخصية نفسها من المحادثة إلى صورة وفيديو قصير، فجرب مسار Yollo AI. لا تجعل شرح API قديما أو كلمة «مجاني» حكما نهائيا."
+    },
+    "spicychat-ai": {
+      title:"Yollo AI أم SpicyChat AI: استمرارية المشهد أم إدارة العالم عبر Lorebook؟",
+      description:"مقارنة Lorebook والذاكرة الدلالية والحوار الطويل والصور والفيديو والخصوصية والتكلفة في Yollo AI وSpicyChat AI.",
+      intro:"قد تصلح الخدمتان لقصص بشخصيات خيالية بالغة. يبرز Yollo AI الانتقال من الحوار إلى الصور والفيديو القصير. وتشرح وثائق SpicyChat AI محادثات الشخصيات وLorebook التي تستدعيها كلمات مفتاحية وميزة منفصلة تسمى Semantic Memory. القول إن كليهما «يتذكر» يخفي الفروق المهمة.",
+      dimensions:[
+        ["محور العمل","ربط المحادثة بالصورة والفيديو القصير","الحوار وتنظيم قواعد العالم"],
+        ["استدعاء المعلومات","اختبار الشخصية والذاكرة بسؤال متأخر","استدعاء عناصر Lorebook بكلمات مفتاحية"],
+        ["القصة الطويلة","التحقق من الذاكرة المعلن عنها","الفصل بين السياق وLorebook والذاكرة الدلالية الاختيارية"],
+        ["السعر","احتساب النماذج والتوليد وإعادة المحاولة","التحقق من الخطة الحالية للذاكرة والنماذج"]
+      ],
+      sections:[
+        ["أين تحفظ قواعد القصة؟","تصف وثائق SpicyChat الرسمية Lorebook بأنها مكان مستقل لتفاصيل المواقع والشخصيات والقواعد؛ وتدخل العناصر المناسبة إلى سياق الحوار عند ظهور كلمات مفتاحية. هذا أوضح من حشو كل العالم في رسالة افتتاحية، لكن الكلمة الواسعة قد تستدعي معلومات لا تلائم المشهد. افحص حدود خطتك وصلاحياتها الحالية."],
+        ["ثلاث آليات لا تعني شيئا واحدا","تشرح وثائق Semantic Memory إدارة ملخصات للمعلومات المهمة من المحادثات السابقة. وهي ليست نافذة السياق القريب ولا Lorebook. يعلن Yollo AI أيضا ذاكرة طويلة الأمد، لكن المصادر العامة لا تثبت أنه يستخدم الآلية نفسها. ضع ثلاث حقائق خيالية، غيّر الموضوع ثم اسأل عنها بعد مدة لتقارن الفائدة."],
+        ["قيم الفيديو بمعيار مستقل","يقدم Yollo AI صورا وفيديو قصيرا مرتبطين بالشخصية. لا تكتف بصورة أولى جذابة: كرر التوليد وقارن الوجه والملابس والأغراض، وتحقق هل تكلف النتيجة الفاشلة مالا. ولا تصف SpicyChat بأنه نص فقط دون مراجعة إمكاناته الحالية؛ المقارنة هنا بين سير عمل موثق، لا ادعاء احتكار الوسائط."],
+        ["الظهور والموقع والميزانية","اعرف في الخدمتين هل الشخصيات علنية افتراضيا وكيف تحذف المحادثات والذكريات والأعمال. تحظر شروط Yollo AI استخدامه على الموجودين أو المقيمين في بر الصين الرئيسي وهونغ كونغ، وقد تنشأ رسوم رغم خطاب المجانية. أدخل تكلفة ميزة الذاكرة التي تحتاجها ومحاولات الفيديو الإضافية في حسابك."]
+      ],
+      verdict:"إذا أردت التأكد من بقاء الشخصية متشابهة في المحادثة والصور والفيديو القصير، فاختبر Yollo AI. وإذا أردت إدارة أماكن وقواعد قصة طويلة، فتستحق أدوات Lorebook الموثقة لدى SpicyChat AI اهتماما أكبر. يعتمد القرار على الوصول الفعلي والخصوصية والتكلفة الكاملة."
+    },
+    "crushon-ai": {
+      title:"Yollo AI أم CrushOn AI: تصوير شخصية أم متابعة عالم مشترك؟",
+      description:"مقارنة Yollo AI وCrushOn AI في النماذج والمحادثات الجماعية وWorld Card والسياق والذاكرة والمجانية والوسائط.",
+      intro:"يعرض Yollo AI انتقالا من محادثة الشخصية إلى الصور والفيديو القصير. ويبرز موقع CrushOn AI الرسمي الحوارات الطويلة واختيار النماذج والمشاهد متعددة الشخصيات وWorld Card. هذه أوصاف من مقدمي الخدمتين، وليست نتائج اختبارات أجريناها. حدد أولا هل تريد مشهدا مرئيا منتهيا أم عالما جماعيا يستمر.",
+      dimensions:[
+        ["الهدف","نقل شخصية من الحوار إلى صورة وفيديو","حوار طويل مع عدة شخصيات في عالم واحد"],
+        ["التحكم","إعداد الشخصية والصور والفيديو القصير","تغيير النموذج والمجموعة وWorld Card"],
+        ["الذاكرة","سؤال لاحق عن حقائق خيالية سابقة","تمييز عدد الرسائل والسياق والذاكرة المحفوظة"],
+        ["النطاق المجاني","مقارنة الإعلان ببنود الدفع","الفصل بين النماذج المجانية وأرصدة النماذج الأعلى"]
+      ],
+      sections:[
+        ["الصورة النهائية ليست عالما مشتركا","في Yollo AI، يهم أن تبقى ملامح الشخصية وملابسها والمكان من الحوار متسقة في الصور والفيديو. يقدم CrushOn AI شخصيات متعددة داخل مشهد واحد وتغيير النماذج والتفاعل في عالم مشترك. إذا كانت العلاقة بين عدة شخصيات هي الهدف، فلا يكفي وجود زر فيديو لدى خدمة أخرى لترجيحها."],
+        ["«غير محدود» يحتاج إلى تفصيل","تميز مقالة CrushOn الرسمية بين عدد الرسائل المرسلة والنماذج المتاحة وكمية السياق التي تصل إلى الرد التالي والحقائق المحفوظة منفصلة. المحادثة غير المحدودة لا تعني نماذج ممتازة بلا حدود أو ذاكرة كاملة. اختبر ادعاء Yollo AI عن الذاكرة الطويلة بالطريقة نفسها: اذكر حقيقة خيالية واسأل عنها بعد جولات كثيرة."],
+        ["اختبار عادل على مرحلتين","تخيل عالم فلك خياليا بالغا يستعد لمعرض. أجر اثنتي عشرة جولة في الخدمتين، ثم اسأل عن اسم المعرض والتلسكوب المعطل. في Yollo AI أنشئ صورة وفيديو للشخص والأداة نفسيهما. وفي CrushOn AI، إذا سمحت خطتك، أضف شخصية أخرى وWorld Card وشاهد هل يبقى العالم متسقا. هذا بروتوكول مقترح وليس ترتيبا بنتائج مزعومة."],
+        ["الأرصدة والمحادثات الخاصة","يفصل CrushOn بين نماذج متاحة مجانا وأرصدة للنماذج الأعلى. وفي Yollo AI ينبغي قراءة بنود الاشتراك ورسوم الاستخدام، لا الاكتفاء بشعار المجانية. تجنب أسرار أشخاص حقيقيين، وراجع إعدادات الظهور والحذف، واجمع كلفة النموذج والرسائل وإعادة إنتاج الوسائط. واحترم القيود الإقليمية لدى Yollo."]
+      ],
+      verdict:"إذا كانت النتيجة المطلوبة صورة أو فيديو قصيرا لشخصية من المحادثة، فاختبر Yollo AI. وإذا فضلت محادثات طويلة ونماذج متعددة وشخصيات تشترك في عالم واحد، فقارن CrushOn AI. السعر المهم هو تكلفة الإعداد الذي ستستخدمه فعلا، لا وعد عام بالمجانية."
+    },
+    "candy-ai": {
+      title:"Yollo AI أم Candy AI: استكشاف شخصيات كثيرة أم إنشاء رفيقة واحدة؟",
+      description:"مقارنة Yollo AI وCandy AI في اكتشاف الشخصيات والحوار والصوت والصور والفيديو والثبات والخصوصية والتكلفة.",
+      intro:"لا تقتصر أي من الخدمتين على الرسائل النصية. يتيح Yollo AI استكشاف شخصيات خيالية متعددة أو إنشاءها، ثم إنتاج صور ومقاطع فيديو قصيرة. ويقدم Candy AI خطوات لتشكيل رفيقة واحدة والتفاعل معها عبر الحوار والصوت والصور والفيديو. الفارق العملي في طريقة البداية وثبات الشخصية بعد ذلك.",
+      dimensions:[
+        ["البداية","استكشاف شخصيات جاهزة أو إنشاء واحدة","تشكيل رفيقة واحدة خطوة بخطوة"],
+        ["الوسائط","تحويل شخصية الحوار إلى صورة وفيديو قصير","الجمع بين الحوار والصوت والصورة والفيديو"],
+        ["الاتساق","مقارنة الشكل عبر مشاهد ومحاولات متعددة","فحص الصوت والطباع والوجه بين الوسائط"],
+        ["الإنفاق","موازنة إعلان المجانية بشروط الدفع","التحقق من الاشتراك وشراء رموز إضافية"]
+      ],
+      sections:[
+        ["الاستكشاف أم التصميم المباشر","يبرز Yollo AI البحث عن الشخصيات وإنشاءها وتحديد سماتها واختيار النماذج. قد يلائم من يريد تجربة أفكار قصصية مختلفة أولا. أما Candy AI فيقود المستخدم إلى ضبط رفيقة محددة خطوة بخطوة. سهولة الإعداد لا تثبت جودة الحديث لاحقا؛ جرب الشخصية الخيالية البالغة نفسها في الخدمتين."],
+        ["Candy AI يوفر الصوت والفيديو أيضا","يذكر الموقع الرسمي لـCandy AI التفاعل الصوتي والصور المخصصة والفيديو صراحة. لذا من الخطأ القول إن Yollo وحده ينشئ وسائط مرئية. تحدث مع الشخصية نفسها وأنتج صورة وفيديو في الجانبين، واختبر الصوت في Candy. راقب بقاء الوجه وطريقة الكلام والأغراض قابلة للتعرف عليها بين الصيغ."],
+        ["احسب أسبوعا من الاستخدام","يروج Yollo AI للوصول المجاني دون تسجيل، لكن شروطه تسمح بالاشتراكات ورسوم الاستخدام. ويعرض Candy AI الاشتراك وشراء رموز إضافية. اجمع رسائلك المعتادة والصوت والصور والفيديو والمحاولات التي فشلت واحتجت إلى إعادتها. شاشة الدفع الحالية أدق من سعر قديم في مراجعة."],
+        ["النشر والحذف","تتطرق شروط Yollo AI إلى قرار نشر الأعمال وترخيص بعض استخدامات المحتوى المنشأ من المستخدم. افحص الإعدادات قبل مشاركة شخصية أو صورة. راجع شروط الخصوصية والحذف والدفع لدى Candy AI بشكل مستقل. لا تستخدم وجه شخص حقيقي أو صوته دون إذن، ولا تتجاوز قيود Yollo المتعلقة ببر الصين الرئيسي وهونغ كونغ."]
+      ],
+      verdict:"إذا أردت تجربة شخصيات كثيرة ثم نقل المفضلة من الحديث إلى صور وفيديو قصير، فجرب Yollo AI. وإذا أردت تصميم رفيقة واحدة واستمرارها في الحوار والصوت والوسائط المرئية، فقارن Candy AI. افحص اتساقها وتكلفة إعادة المحاولة في كليهما قبل الاشتراك."
     }
   }
 };
