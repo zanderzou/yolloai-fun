@@ -3,7 +3,7 @@ export const site = {
   domain: "yolloai.fun",
   url: "https://yolloai.fun",
   description: "An independent Yollo AI guide to AI roleplay, character creation, image and video generation, privacy, regional availability, pricing, and alternatives.",
-  author: "Yollo AI Guide editorial team",
+  author: "Yollo AI editorial team",
   officialUrl: "https://app.yollo.ai/",
 };
 export const formatDate = (date: Date) => new Intl.DateTimeFormat("en-US", { year:"numeric", month:"long", day:"numeric", timeZone:"UTC" }).format(date);
