@@ -205,7 +205,7 @@ export const localizedHome: Record<Locale, HomeCopy> = {
     ctaBody:"用同一個虛構故事試對話、圖片與短影片，同時比較公開設定、地區限制、費用與取消訂閱方式。"
   },
   es: {
-    description:"Análisis independiente de Yollo AI: chat con personajes, imágenes, vídeos breves, privacidad y costes. Cinco comparativas con Character.AI, Janitor AI, SpicyChat AI, CrushOn AI y Candy AI.",
+    description:"Análisis de Yollo AI: chat con personajes, imágenes, vídeos breves, privacidad y costes. Cinco comparativas con Character.AI, Janitor AI, SpicyChat AI, CrushOn AI y Candy AI.",
     tagline:"Comprueba si el mismo personaje funciona en el chat, la imagen y el vídeo.",
     intro:"Yollo AI presenta un catálogo de personajes para roleplay, herramientas para crear uno propio y generación de imágenes y vídeos breves. La pregunta útil no es cuántas funciones anuncia, sino si una historia con personajes adultos ficticios mantiene su identidad al pasar del diálogo a lo visual.",
     overviewTitle:"Qué conviene comprobar en Yollo AI",
@@ -376,7 +376,7 @@ export const localizedHome: Record<Locale, HomeCopy> = {
     ctaBody:"Сопоставьте один вымышленный сюжет в диалоге, на изображении и в коротком видео; затем изучите видимость, регион, расходы и отмену подписки."
   },
   de: {
-    description:"Unabhängiger Überblick zu Yollo AI: Figuren-Chat, Bilder, Kurzvideos, Kosten und Datenschutz. Fünf gezielte Vergleiche mit Character.AI, Janitor AI, SpicyChat AI, CrushOn AI und Candy AI.",
+    description:"Yollo AI im Überblick: Figuren-Chat, Bilder, Kurzvideos, Kosten und Datenschutz. Fünf Vergleiche mit Character.AI, Janitor AI, SpicyChat AI, CrushOn AI und Candy AI.",
     tagline:"Prüfen, ob eine Figur im Chat, auf Bildern und im Video dieselbe bleibt.",
     intro:"Yollo AI stellt Rollenspielfiguren, deren Erstellung sowie Bild- und Kurzvideogenerierung nebeneinander. Viele Funktionen allein machen noch keine gute Geschichte. Entscheidend ist, ob eine klar erwachsene, fiktive Figur zwischen Dialog und visueller Szene wiedererkennbar bleibt.",
     overviewTitle:"Worauf es bei Yollo AI ankommt",

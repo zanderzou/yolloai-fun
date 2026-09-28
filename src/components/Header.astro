@@ -1,12 +1,40 @@
 ---
 import Icon from "./Icon.astro";
+import { a11y, languageAlternates, locales, routeFor, ui, type Locale } from "../data/locales";
 import { site } from "../data/site";
+interface Props { locale?: Locale | ""; pathname?: string; }
+const { locale = "", pathname = "/" } = Astro.props;
+const label = locale ? ui[locale] : undefined;
+const home = routeFor(locale);
+const blog = routeFor(locale, "blog");
+const languageLinks = languageAlternates(pathname);
+const currentLabel = locale ? locales.find((entry) => entry.slug === locale)?.label : "English";
+const names = new Map([["en", "English"], ...locales.map((entry) => [entry.lang, entry.label])]);
 ---
 <header class="site-header">
-  <a class="brand" href="/" aria-label="Yollo AI home"><span class="brand-icon">Y</span><strong>Yollo<span>AI</span></strong></a>
-  <nav aria-label="Main navigation"><a href="/#how-it-works">How it works</a><a href="/#features">Features</a><a href="/#compare">Compare</a><a href="/blog/">Blog</a></nav>
-  <a class="official-link" href={site.officialUrl} rel="noopener" target="_blank">Visit Yollo AI <Icon name="arrow" /></a>
-  <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button><Icon name="menu" /></button>
-  <div class="mobile-nav" data-mobile-nav><a href="/#how-it-works">How it works</a><a href="/#features">Features</a><a href="/#compare">Compare</a><a href="/blog/">Blog</a><a href={site.officialUrl} rel="noopener" target="_blank">Official Yollo AI</a></div>
+  <a class="brand" href={home} aria-label={`Yollo AI · ${label?.home ?? "Home"}`}><span class="brand-icon">Y</span><strong>Yollo<span>AI</span></strong></a>
+  <nav aria-label={locale ? a11y[locale].navigation : "Main navigation"}>
+    <a href={`${home}#how-it-works`}>{label?.workflow ?? "How it works"}</a>
+    <a href={`${home}#features`}>{label?.features ?? "Features"}</a>
+    <a href={`${home}#compare`}>{label?.compare ?? "Compare"}</a>
+    <a href={blog}>{label?.blog ?? "Blog"}</a>
+  </nav>
+  <details class="language-switch">
+    <summary aria-label={label?.language ?? "Language"}>{currentLabel} <span aria-hidden="true">⌄</span></summary>
+    <div class="language-options">
+      {languageLinks.map((entry) => <a href={entry.href} lang={entry.lang} aria-current={entry.lang === (locales.find((item) => item.slug === locale)?.lang ?? "en") ? "page" : undefined}>{names.get(entry.lang)}</a>)}
+    </div>
+  </details>
+  <a class="official-link" href={site.officialUrl} rel="noopener" target="_blank">{label?.official ?? "Visit Yollo AI"} <Icon name="arrow" /></a>
+  <button class="menu-button" type="button" aria-label={locale ? a11y[locale].menu : "Open menu"} aria-expanded="false" data-menu-button data-label-open={locale ? a11y[locale].menu : "Open menu"} data-label-close={locale ? a11y[locale].closeMenu : "Close menu"}><Icon name="menu" /></button>
+  <div class="mobile-nav" data-mobile-nav>
+    <a href={`${home}#how-it-works`}>{label?.workflow ?? "How it works"}</a>
+    <a href={`${home}#features`}>{label?.features ?? "Features"}</a>
+    <a href={`${home}#compare`}>{label?.compare ?? "Compare"}</a>
+    <a href={blog}>{label?.blog ?? "Blog"}</a>
+    <a href={site.officialUrl} rel="noopener" target="_blank">{label?.official ?? "Official Yollo AI"}</a>
+    <div class="mobile-language-links" aria-label={label?.language ?? "Language"}>
+      {languageLinks.map((entry) => <a href={entry.href} lang={entry.lang} aria-current={entry.lang === (locales.find((item) => item.slug === locale)?.lang ?? "en") ? "page" : undefined}>{names.get(entry.lang)}</a>)}
+    </div>
+  </div>
 </header>
-

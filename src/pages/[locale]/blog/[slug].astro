@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Icon from "../../../components/Icon.astro";
+import { comparisonArticles, sourceLinks } from "../../../data/localized-articles";
+import { a11y, comparisons, locales, routeFor, ui, type Locale } from "../../../data/locales";
+import { site } from "../../../data/site";
+
+export function getStaticPaths() {
+  return locales.flatMap((entry) => comparisons.map((comparison) => ({ params: { locale: entry.slug, slug: comparison.slug } })));
+}
+const locale = Astro.params.locale as Locale;
+const comparison = comparisons.find((entry) => entry.slug === Astro.params.slug)!;
+const article = comparisonArticles[locale][comparison.key];
+const label = ui[locale];
+const lang = locales.find((entry) => entry.slug === locale)!.lang;
+const path = routeFor(locale, `blog/${comparison.slug}`);
+const related = comparisons.filter((entry) => entry.key !== comparison.key).slice(0, 2);
+const decisionLabel: Record<Locale, string> = {
+  ja: "どちらを選ぶ？", ko: "어느 쪽을 선택할까?", "zh-hant": "如何選擇？",
+  es: "¿Cuál elegir?", "pt-br": "Qual escolher?", ru: "Что выбрать?",
+  de: "Welche Lösung passt?", fr: "Comment choisir ?", ar: "كيف تختار؟",
+};
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article", headline: article.title, description: article.description,
+      mainEntityOfPage: `${site.url}${path}`,
+      image: `${site.url}/assets/yollo-user-knit-editorial.jpg`,
+      author: { "@type": "Organization", name: site.author, url: `${site.url}/about/` },
+      publisher: { "@type": "Organization", name: site.name, url: site.url, logo: { "@type": "ImageObject", url: `${site.url}/favicon.svg` } },
+      about: ["Yollo AI", comparison.name], inLanguage: lang,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: label.home, item: `${site.url}${routeFor(locale)}` },
+        { "@type": "ListItem", position: 2, name: label.blog, item: `${site.url}${routeFor(locale, "blog")}` },
+        { "@type": "ListItem", position: 3, name: article.title, item: `${site.url}${path}` },
+      ],
+    },
+  ],
+};
+---
+<BaseLayout locale={locale} title={article.title} description={article.description} type="article" jsonLd={jsonLd}>
+  <article class="article-shell locale-article">
+    <header class="article-header">
+      <nav class="breadcrumbs" aria-label={a11y[locale].breadcrumb}><a href={routeFor(locale)}>{label.home}</a><span>/</span><a href={routeFor(locale, "blog")}>{label.blog}</a><span>/</span><span>Yollo AI vs {comparison.name}</span></nav>
+      <a class="back-link" href={routeFor(locale, "blog")}>← {label.allArticles}</a>
+      <div class="post-meta"><span>Yollo AI vs {comparison.name}</span></div>
+      <h1>{article.title}</h1>
+      <p>{article.description}</p>
+      <div class="byline"><span class="brand-icon">Y</span><div><strong>Yollo AI</strong><small>{label.independent}</small></div></div>
+    </header>
+    <div class="article-layout">
+      <aside><div class="toc"><span>{label.compare}</span><a href="#comparison">{label.compare}</a><a href="#sources">{label.sources}</a><a href="#related">{label.allArticles}</a></div></aside>
+      <div>
+        <div class="article-content" id="comparison">
+          <p class="article-lede">{article.intro}</p>
+          <h2>{label.compare}: Yollo AI vs {comparison.name}</h2>
+          <table><thead><tr><th>{label.compare}</th><th>Yollo AI</th><th>{comparison.name}</th></tr></thead><tbody>
+            {article.dimensions.map(([criterion, yollo, alternative]) => <tr><th scope="row">{criterion}</th><td data-label="Yollo AI">{yollo}</td><td data-label={comparison.name}>{alternative}</td></tr>)}
+          </tbody></table>
+          {article.sections.map(([heading, body]) => <section><h2>{heading}</h2><p>{body}</p></section>)}
+          <section class="locale-verdict"><h2>{decisionLabel[locale]}</h2><p>{article.verdict}</p></section>
+        </div>
+        <div class="editorial-rule"><div><Icon name="lock" /></div><div><strong>{label.privacy}</strong><p>{label.independent} {label.regionNote}</p></div></div>
+        <section class="sources" id="sources">
+          <h2>{label.sources}</h2>
+          <p>{label.priceNote}</p>
+          <ul>
+            <li><a href="https://www.yollo.ai/" rel="noopener" target="_blank">Yollo AI · Product</a></li>
+            <li><a href="https://www.yollo.ai/terms" rel="noopener" target="_blank">Yollo AI · Terms</a></li>
+            <li><a href="https://www.yollo.ai/privacy" rel="noopener" target="_blank">Yollo AI · Privacy</a></li>
+            {sourceLinks[comparison.key].map((source) => <li><a href={source.url} rel="noopener" target="_blank">{source.name}</a></li>)}
+          </ul>
+        </section>
+      </div>
+    </div>
+  </article>
+  <section class="section related locale-related" id="related">
+    <div class="section-head"><div><div class="section-label">{label.allArticles}</div><h2>{label.allArticles}</h2></div></div>
+    <div class="locale-comparison-grid">{related.map((entry) => <a href={routeFor(locale, `blog/${entry.slug}`)}><span>Yollo AI vs {entry.name}</span><h3>{comparisonArticles[locale][entry.key].title}</h3><p>{comparisonArticles[locale][entry.key].description}</p><strong>{label.read} →</strong></a>)}</div>
+  </section>
+</BaseLayout>

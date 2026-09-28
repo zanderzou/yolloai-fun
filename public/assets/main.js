@@ -5,7 +5,7 @@ if (menuButton && mobileNav) {
   menuButton.addEventListener("click", () => {
     const open = mobileNav.classList.toggle("is-open");
     menuButton.setAttribute("aria-expanded", String(open));
-    menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    menuButton.setAttribute("aria-label", open ? menuButton.dataset.labelClose : menuButton.dataset.labelOpen);
   });
 
   mobileNav.querySelectorAll("a").forEach((link) => {

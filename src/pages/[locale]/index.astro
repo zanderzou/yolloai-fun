@@ -1,0 +1,99 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Icon from "../../components/Icon.astro";
+import { comparisonArticles } from "../../data/localized-articles";
+import { localizedHome } from "../../data/localized-home";
+import { comparisons, locales, routeFor, ui, type Locale } from "../../data/locales";
+import { site } from "../../data/site";
+import heroImage from "../../assets/yollo-user-knit-editorial.jpg";
+
+export function getStaticPaths() {
+  return locales.map((entry) => ({ params: { locale: entry.slug } }));
+}
+const locale = Astro.params.locale as Locale;
+const copy = localizedHome[locale];
+const label = ui[locale];
+const lang = locales.find((entry) => entry.slug === locale)!.lang;
+const alt: Record<Locale, string> = {
+  ja: "ニットを着た成人の架空人物を写した編集用ポートレート",
+  ko: "니트 의상을 입은 성인 가상 인물의 화보 이미지",
+  "zh-hant": "穿著針織服裝的成年虛構人物編輯照片",
+  es: "Retrato editorial de una persona ficticia adulta con ropa de punto",
+  "pt-br": "Retrato editorial de uma pessoa fictícia adulta com roupa de tricô",
+  ru: "Редакционный портрет взрослого вымышленного персонажа в вязаной одежде",
+  de: "Redaktionelles Porträt einer erwachsenen fiktiven Figur in Strickkleidung",
+  fr: "Portrait éditorial d'un personnage fictif adulte en maille",
+  ar: "صورة تحريرية لشخصية خيالية بالغة ترتدي ملابس محاكة",
+};
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebPage", name: "Yollo AI", url: `${site.url}/${locale}/`, description: copy.description, inLanguage: lang, isPartOf: { "@type": "WebSite", name: site.name, url: site.url } },
+    { "@type": "FAQPage", mainEntity: copy.faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+  ],
+};
+---
+<BaseLayout locale={locale} title="Yollo AI" description={copy.description} jsonLd={jsonLd}>
+  <section class="hero locale-home-hero">
+    <Image class="hero-image" src={heroImage} alt={alt[locale]} widths={[640, 960, 1280, 1536]} sizes="100vw" loading="eager" fetchpriority="high" quality={86} />
+    <div class="hero-glow"></div>
+    <div class="hero-copy">
+      <div class="kicker">Yollo AI</div>
+      <h1>Yollo AI</h1>
+      <p class="hero-tagline">{copy.tagline}</p>
+      <p>{copy.intro}</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#how-it-works">{label.workflow} <Icon name="arrow" /></a>
+        <a class="button ghost" href={routeFor(locale, `blog/${comparisons[0].slug}`)}>{label.read}</a>
+      </div>
+    </div>
+  </section>
+  <section class="section locale-section" id="overview">
+    <div class="section-head"><div><div class="section-label">01 / Yollo AI</div><h2>{copy.overviewTitle}</h2></div><p>{copy.overviewLead}</p></div>
+    <p class="locale-wide-copy">{copy.overviewDetail}</p>
+  </section>
+  <section class="section locale-section" id="how-it-works">
+    <div class="section-head"><div><div class="section-label">02 / {label.workflow}</div><h2>{copy.workflowTitle}</h2></div><p>{copy.workflowLead}</p></div>
+    <div class="journey-grid">{copy.workflow.map(([heading, detail], index) => <article><b>0{index + 1}</b><h3>{heading}</h3><p>{detail}</p></article>)}</div>
+  </section>
+  <section class="section locale-section" id="features">
+    <div class="section-head"><div><div class="section-label">03 / {label.features}</div><h2>{copy.featuresTitle}</h2></div><p>{copy.featuresLead}</p></div>
+    <div class="locale-feature-grid">{copy.features.map(([heading, detail]) => <article><h3>{heading}</h3><p>{detail}</p></article>)}</div>
+  </section>
+  <section class="section locale-section" id="test">
+    <div class="section-head"><div><div class="section-label">04 / {label.workflow}</div><h2>{copy.testTitle}</h2></div><p>{copy.testLead}</p></div>
+    <ol class="locale-test-list">{copy.test.map(([heading, detail], index) => <li><span>0{index + 1}</span><div><h3>{heading}</h3><p>{detail}</p></div></li>)}</ol>
+  </section>
+  <section class="section locale-section" id="compare">
+    <div class="section-head"><div><div class="section-label">05 / {label.compare}</div><h2>{copy.compareTitle}</h2></div><p>{copy.compareLead}</p></div>
+    <div class="locale-comparison-grid">{comparisons.map((entry) => <a href={routeFor(locale, `blog/${entry.slug}`)}><span>Yollo AI vs {entry.name}</span><p>{copy.lenses[entry.key]}</p><strong>{label.read} →</strong></a>)}</div>
+  </section>
+  <section class="section locale-section" id="field-notes">
+    <div class="section-head"><div><div class="section-label">06 / Yollo AI</div><h2>{copy.fieldTitle}</h2></div><p>{copy.fieldLead}</p></div>
+    <div class="locale-notes">{copy.notes.map(([heading, detail]) => <article><h3>{heading}</h3><p>{detail}</p></article>)}</div>
+  </section>
+  <section class="section locale-section" id="privacy">
+    <div class="section-head"><div><div class="section-label">07 / {label.privacy}</div><h2>{copy.privacyTitle}</h2></div></div>
+    <p class="locale-wide-copy">{copy.privacyBody}</p>
+    <p class="locale-wide-copy">{label.priceNote} {label.regionNote}</p>
+    <a class="button ghost" href={routeFor(locale, "privacy")}>{label.privacy} <Icon name="arrow" /></a>
+  </section>
+  <section class="section locale-section" id="blog">
+    <div class="section-head"><div><div class="section-label">08 / {label.blog}</div><h2>{copy.blogTitle}</h2></div></div>
+    <div class="locale-comparison-grid">{comparisons.slice(0, 3).map((entry) => <a href={routeFor(locale, `blog/${entry.slug}`)}><span>Yollo AI vs {entry.name}</span><h3>{comparisonArticles[locale][entry.key].title}</h3><p>{comparisonArticles[locale][entry.key].description}</p><strong>{label.read} →</strong></a>)}</div>
+  </section>
+  <section class="section locale-section" id="questions">
+    <div class="section-head"><div><div class="section-label">09 / FAQ</div><h2>{copy.faqTitle}</h2></div></div>
+    <div class="faq-list">{copy.faq.map(([question, answer]) => <details><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
+  </section>
+  <section class="section locale-section locale-sources">
+    <div class="section-head"><div><div class="section-label">10 / {label.sources}</div><h2>{label.sources}</h2></div></div>
+    <ul>
+      <li><a href="https://www.yollo.ai/" rel="noopener" target="_blank">Yollo AI · Product ↗</a></li>
+      <li><a href="https://www.yollo.ai/terms" rel="noopener" target="_blank">Yollo AI · Terms ↗</a></li>
+      <li><a href="https://www.yollo.ai/privacy" rel="noopener" target="_blank">Yollo AI · Privacy ↗</a></li>
+    </ul>
+  </section>
+  <section class="section final-cta locale-final"><div><h2>{copy.ctaTitle}</h2><p>{copy.ctaBody}</p><p>{label.independent}</p></div><a class="button primary" href={site.officialUrl} rel="noopener" target="_blank">{label.official} <Icon name="arrow" /></a></section>
+</BaseLayout>

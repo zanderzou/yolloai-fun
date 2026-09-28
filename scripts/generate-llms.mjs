@@ -1,6 +1,9 @@
 import {readFileSync,writeFileSync,readdirSync,existsSync} from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+const require=createRequire(import.meta.url);
+const {buildSync}=require('esbuild');
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const siteSource=readFileSync(path.join(root,'src/data/site.ts'),'utf8');
 const value=(key)=>{const m=siteSource.match(new RegExp('(?:"'+key+'"|\\b'+key+')\\s*:\\s*("(?:[^"\\\\]|\\\\.)*")'));return m?JSON.parse(m[1]):null};
@@ -9,19 +12,39 @@ if(!name||!url||!description||!url.startsWith('https://'))throw Error('Missing s
 const origin=new URL(url).origin;
 const pages=path.join(root,'src/pages');
 const blog=path.join(root,'src/content/blog');
+const localeSource=readFileSync(path.join(root,'src/data/locales.ts'),'utf8');
+const locales=[...localeSource.matchAll(/\{ slug: "([^"]+)", lang: "([^"]+)", label: "([^"]+)" \}/g)].map(([,slug,lang,label])=>({slug,lang,label}));
+if(locales.length!==9)throw Error('Expected nine Yollo AI locale routes');
 const articles=readdirSync(blog).filter(f=>f.endsWith('.md')).sort().map(f=>{
  const source=readFileSync(path.join(blog,f),'utf8');
  const match=source.match(/^title:\s*(.+)$/m);if(!match)throw Error('Missing title: '+f);
  let title=match[1].trim();if(title.startsWith('"'))title=JSON.parse(title);else if(title.startsWith("'"))title=title.slice(1,-1).replaceAll("''","'");
  return {title,slug:f.slice(0,-3)};
 });
+const localizedModule={exports:{}};
+const localizedBuild=buildSync({entryPoints:[path.join(root,'src/data/localized-articles.ts')],bundle:true,platform:'node',format:'cjs',write:false});
+new Function('module','exports',localizedBuild.outputFiles[0].text)(localizedModule,localizedModule.exports);
+const localizedArticles=localizedModule.exports.comparisonArticles;
 const label=s=>s.replace(/[\[\]]/g,'');
 const links=[['Homepage','/','Overview and practical decision guidance.'],['Blog and comparisons','/blog/','Browse the editorial article collection.']];
 const optional=[['About','about'],['Editorial policy','editorial-policy'],['Contact','contact'],['Privacy policy','privacy'],['Terms','terms']].filter(([,slug])=>existsSync(path.join(pages,slug+'.astro'))||existsSync(path.join(pages,slug,'index.astro')));
+const localizedLinks=locales.flatMap(({slug,lang,label:localeLabel})=>[
+ `### ${localeLabel} (${lang})`,'',
+ `- [Yollo AI — ${localeLabel}](${origin}/${slug}/)`,
+ `- [Blog — ${localeLabel}](${origin}/${slug}/blog/)`,
+ ...articles.map(a=>{
+   const key=a.slug.replace(/^yolloai-vs-/,'');
+   const title=localizedArticles[slug]?.[key]?.title;
+   if(!title)throw Error('Missing localized article title: '+slug+'/'+key);
+   return `- [${label(title)}](${origin}/${slug}/blog/${a.slug}/)`;
+ }),
+ ...optional.map(([title,page])=>`- [${title} — ${localeLabel}](${origin}/${slug}/${page}/)`),'',
+]);
 const text=[`# ${name}`,'',`> ${description}`,'',`Canonical publication: ${origin}/`,'','This is an independent editorial publication, not the official provider. Articles distinguish published provider information from suggested evaluation methods. Examples and proposed tests are not measured benchmark results. Check dated sources and live provider terms for changing features and prices.','',
  '## Main pages','',...links.map(([title,route,note])=>`- [${title}](${origin}${route}): ${note}`),'',
  '## Comparisons','',...articles.map(a=>`- [${label(a.title)}](${origin}/blog/${a.slug}/)`),'',
  '## Publication information','',...optional.map(([title,slug])=>`- [${title}](${origin}/${slug}/)`),'',
+ '## Full localized editions','',...localizedLinks,
  '## Optional','',`- [XML sitemap](${origin}/sitemap-index.xml): Canonical page inventory.`,`- [RSS feed](${origin}/rss.xml): Published article updates.`,`- [Robots policy](${origin}/robots.txt): Crawler access directives.`,''].join('\n');
 const destination=path.join(root,'public/llms.txt');
 if(process.argv.includes('--check')){
@@ -33,5 +56,5 @@ if(process.argv.includes('--check')){
   const route=decodeURIComponent(link.pathname);const file=path.join(out,route.endsWith('/')?route+'index.html':route);
   if(!existsSync(file))throw Error('Broken llms.txt link: '+link.href);
  }
- console.log(`${new URL(origin).hostname}: llms.txt current, ${articles.length} article links verified`);
+ console.log(`${new URL(origin).hostname}: llms.txt current, ${articles.length} English and ${articles.length*locales.length} localized article links verified`);
 }else{writeFileSync(destination,text);console.log(`Generated llms.txt for ${name}`);}

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { comparisonArticles } from "../../../data/localized-articles";
+import { localizedBlog } from "../../../data/localized-blog";
+import { comparisons, locales, routeFor, ui, type Locale } from "../../../data/locales";
+import { site } from "../../../data/site";
+
+export function getStaticPaths() {
+  return locales.map((entry) => ({ params: { locale: entry.slug } }));
+}
+const locale = Astro.params.locale as Locale;
+const copy = localizedBlog[locale];
+const label = ui[locale];
+const lang = locales.find((entry) => entry.slug === locale)!.lang;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: copy.title,
+  description: copy.description,
+  url: `${site.url}${routeFor(locale, "blog")}`,
+  inLanguage: lang,
+  isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: comparisons.map((entry, index) => ({
+      "@type": "ListItem", position: index + 1,
+      name: comparisonArticles[locale][entry.key].title,
+      url: `${site.url}${routeFor(locale, `blog/${entry.slug}`)}`,
+    })),
+  },
+};
+---
+<BaseLayout locale={locale} title={`${copy.title} | Yollo AI`} description={copy.description} jsonLd={jsonLd}>
+  <section class="page-hero locale-page-hero"><div class="ambient-orb"></div><span>Yollo AI / {label.blog}</span><h1>{copy.title}</h1><p>{copy.lead}</p></section>
+  <section class="section locale-section" id="comparisons">
+    <div class="section-head"><div><div class="section-label">01 / {label.allArticles}</div><h2>{label.allArticles}</h2></div></div>
+    <div class="locale-comparison-grid">
+      {comparisons.map((entry) => <a href={routeFor(locale, `blog/${entry.slug}`)}><span>Yollo AI vs {entry.name}</span><h3>{comparisonArticles[locale][entry.key].title}</h3><p>{comparisonArticles[locale][entry.key].description}</p><strong>{label.read} →</strong></a>)}
+    </div>
+  </section>
+  <section class="section locale-section">
+    <div class="section-head"><div><div class="section-label">02 / {label.workflow}</div><h2>{copy.methodTitle}</h2></div></div>
+    <p class="locale-wide-copy">{copy.method}</p>
+  </section>
+  <section class="section locale-section">
+    <div class="section-head"><div><div class="section-label">03 / {label.compare}</div><h2>{copy.scoreTitle}</h2></div></div>
+    <p class="locale-wide-copy">{copy.score}</p>
+    <p class="locale-wide-copy">{label.independent} {label.priceNote}</p>
+  </section>
+  <section class="section final-cta locale-final"><div><h2>Yollo AI</h2><p>{label.regionNote}</p></div><a class="button primary" href={site.officialUrl} rel="noopener" target="_blank">{label.official} →</a></section>
+</BaseLayout>

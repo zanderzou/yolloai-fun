@@ -1,0 +1,65 @@
+import { createRequire } from "node:module";
+import { existsSync, readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const require = createRequire(import.meta.url);
+const { chromium } = require("C:/Users/zande/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const output = path.join(root, "dist", "client");
+const origin = "https://yolloai.fun";
+const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".webp": "image/webp", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".png": "image/png" };
+const browser = await chromium.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+const tagRequests = [];
+try {
+  await context.route(`${origin}/**`, async (route) => {
+    const pathname = decodeURIComponent(new URL(route.request().url()).pathname);
+    let file = path.resolve(output, "." + pathname);
+    if ((!file.startsWith(output + path.sep) && file !== output)) return route.fulfill({ status: 403 });
+    if (!path.extname(file)) file = path.join(file, "index.html");
+    if (!existsSync(file)) return route.fulfill({ status: 404 });
+    await route.fulfill({ status: 200, contentType: mime[path.extname(file)] ?? "application/octet-stream", body: readFileSync(file) });
+  });
+  await context.route("https://www.googletagmanager.com/**", async (route) => { tagRequests.push(route.request().url()); await route.fulfill({ status: 200, contentType: "text/javascript", body: "" }); });
+  await context.route("https://www.google-analytics.com/**", async (route) => { tagRequests.push(route.request().url()); await route.fulfill({ status: 200, body: "" }); });
+  await context.route("https://fonts.googleapis.com/**", (route) => route.abort());
+  await context.route("https://fonts.gstatic.com/**", (route) => route.abort());
+  const page = await context.newPage();
+  const assert = (condition, message) => { if (!condition) throw Error(message); };
+  await page.goto(`${origin}/ja/`, { waitUntil: "domcontentloaded" });
+  await page.locator("#analytics-notice").waitFor({ state: "visible" });
+  assert(tagRequests.length === 0, "Google analytics loaded before consent");
+  assert((await page.locator("#analytics-accept").textContent()).includes("解析"), "Japanese consent button untranslated");
+  await page.locator("#analytics-accept").click();
+  await page.waitForTimeout(120);
+  assert(tagRequests.length === 1, "Google tag did not load exactly once after opt-in");
+  const granted = await page.evaluate(() => JSON.parse(localStorage.getItem("site-analytics-consent-v1") || "null")?.value);
+  assert(granted === "granted", "opt-in not saved");
+  await page.locator("#analytics-settings").click();
+  assert((await page.locator("#analytics-status").textContent()).includes("有効"), "Japanese active status untranslated");
+  await page.locator("#analytics-decline").click();
+  assert(await page.evaluate(() => window[Object.keys(window).find((key) => key.startsWith("ga-disable-G-"))]), "analytics not disabled after withdrawal");
+  await page.reload({ waitUntil: "domcontentloaded" });
+  assert(await page.locator("#analytics-notice").isHidden(), "withdrawn consent not preserved");
+  assert(tagRequests.length === 1, "Google tag loaded after opt-out");
+  await page.goto(`${origin}/ar/`, { waitUntil: "domcontentloaded" });
+  assert(await page.locator("html").getAttribute("dir") === "rtl", "Arabic page not RTL");
+  await page.locator("#analytics-settings").click();
+  assert((await page.locator("#analytics-status").textContent()).includes("متوقفة"), "Arabic off status untranslated");
+  assert(await page.locator("#analytics-notice a").getAttribute("href") === "/ar/privacy/", "Arabic consent privacy link wrong");
+  await page.locator("#analytics-decline").click();
+  await page.locator("[data-menu-button]").click();
+  assert(await page.locator(".mobile-language-links a").count() === 10, "mobile language menu incomplete");
+  await page.locator('.mobile-language-links a[lang="ja"]').click();
+  assert(new URL(page.url()).pathname === "/ja/", "mobile language switch failed");
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto(`${origin}/blog/yolloai-vs-character-ai/`, { waitUntil: "domcontentloaded" });
+  await page.locator(".language-switch summary").click();
+  await page.locator('.language-options a[lang="es"]').click();
+  assert(new URL(page.url()).pathname === "/es/blog/yolloai-vs-character-ai/", "desktop article language switch failed");
+  console.log("Yollo AI: Japanese/Arabic consent, opt-in/withdrawal, no pre-consent Google request, mobile and desktop language switching passed.");
+} finally {
+  await context.close();
+  await browser.close();
+}

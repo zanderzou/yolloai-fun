@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { information } from "../../data/localized-info";
+import { infoPageKeys, locales, routeFor, ui, type InfoPageKey, type Locale } from "../../data/locales";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return locales.flatMap((entry) => infoPageKeys.map((page) => ({ params: { locale: entry.slug, page } })));
+}
+const locale = Astro.params.locale as Locale;
+const page = Astro.params.page as InfoPageKey;
+const copy = information[locale][page];
+const label = ui[locale];
+const lang = locales.find((entry) => entry.slug === locale)!.lang;
+const jsonLd = {
+  "@context": "https://schema.org", "@type": "WebPage",
+  name: copy.title, description: copy.description,
+  url: `${site.url}${routeFor(locale, page)}`, inLanguage: lang,
+  isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
+};
+---
+<BaseLayout locale={locale} title={`${copy.title} | Yollo AI`} description={copy.description} jsonLd={jsonLd}>
+  <section class="info-hero locale-page-hero"><div class="ambient-orb"></div><span>Yollo AI / {copy.title}</span><h1>{copy.title}</h1><p>{copy.lead}</p></section>
+  <article class="info-content locale-info-content">
+    {copy.blocks.map(([heading, body]) => <section><h2>{heading}</h2><p>{body}</p></section>)}
+    <section><h2>{label.sources}</h2><p>{label.independent} {label.priceNote}</p>
+      <ul>
+        <li><a href="https://www.yollo.ai/" rel="noopener" target="_blank">Yollo AI · Product ↗</a></li>
+        <li><a href="https://www.yollo.ai/terms" rel="noopener" target="_blank">Yollo AI · Terms ↗</a></li>
+        <li><a href="https://www.yollo.ai/privacy" rel="noopener" target="_blank">Yollo AI · Privacy ↗</a></li>
+      </ul>
+    </section>
+    <p><a href={routeFor(locale)}>{label.home} →</a></p>
+  </article>
+</BaseLayout>
