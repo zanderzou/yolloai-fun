@@ -14,7 +14,7 @@ const sitemap = existsSync(sitemapPath) ? readFileSync(sitemapPath, "utf8") : ""
 const failures = [];
 const assert = (condition, message) => { if (!condition) failures.push(message); };
 
-assert(pairs.length === 10, "expected English plus nine locale codes");
+assert(pairs.length === 2 && pairs[1][0] === "es", "expected English plus Spanish");
 assert(pagePaths.length === 12, "expected twelve indexable page types");
 assert(Boolean(sitemap), "missing sitemap-0.xml");
 for (const page of pagePaths) {
@@ -51,7 +51,7 @@ for (const page of pagePaths) {
     }
     assert(sitemap.includes(`<loc>${url}</loc>`), `${page}/${lang}: missing from sitemap`);
   }
-  assert(new Set(descriptions).size === 10, `${page || "home"}: duplicate descriptions between languages`);
+  assert(new Set(descriptions).size === 2, `${page || "home"}: duplicate descriptions between languages`);
 }
 const notFound = readFileSync(path.join(output, "404.html"), "utf8");
 assert(/<meta name="robots" content="noindex,follow"/.test(notFound), "404 must be noindex");
@@ -60,5 +60,5 @@ if (failures.length) {
   console.error(failures.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log("Yollo AI: 120/120 local routes passed language, canonical, reciprocal hreflang, H1, social, schema, sitemap and Arabic RTL checks.");
+  console.log("Yollo AI: 24/24 English and Spanish routes passed language, canonical, reciprocal hreflang, H1, social, schema and sitemap checks.");
 }
