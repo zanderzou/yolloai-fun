@@ -13,8 +13,10 @@ const origin=new URL(url).origin;
 const pages=path.join(root,'src/pages');
 const blog=path.join(root,'src/content/blog');
 const localeSource=readFileSync(path.join(root,'src/data/locales.ts'),'utf8');
-const locales=[...localeSource.matchAll(/\{ slug: "([^"]+)", lang: "([^"]+)", label: "([^"]+)" \}/g)].map(([,slug,lang,label])=>({slug,lang,label}));
-if(locales.length!==1||locales[0].slug!=='es')throw Error('Expected Spanish as the only public Yollo AI locale route');
+const localeModule={exports:{}};
+new Function('module','exports',transformSync(localeSource,{loader:'ts',format:'cjs'}).code)(localeModule,localeModule.exports);
+const locales=localeModule.exports.locales;
+if(locales.length!==9||new Set(locales.map(locale=>locale.slug)).size!==9)throw Error('Expected all nine complete public Yollo AI editions');
 const articles=readdirSync(blog).filter(f=>f.endsWith('.md')).sort().map(f=>{
  const source=readFileSync(path.join(blog,f),'utf8');
  const match=source.match(/^title:\s*(.+)$/m);if(!match)throw Error('Missing title: '+f);
@@ -27,6 +29,7 @@ new Function('module','exports',localizedBuild.code)(localizedModule,localizedMo
 const localizedArticles=localizedModule.exports.comparisonArticles;
 const label=s=>s.replace(/[\[\]]/g,'');
 const links=[['Homepage','/','Overview and practical decision guidance.'],['Blog and comparisons','/blog/','Browse the editorial article collection.']];
+const languages=[["Japanese","ja"],["Korean","ko"],["Traditional Chinese","zh-hant"],["Spanish","es"],["Brazilian Portuguese","pt-br"],["Russian","ru"],["German","de"],["French","fr"],["Arabic","ar"]];
 const optional=[['About','about'],['Editorial policy','editorial-policy'],['Contact','contact'],['Privacy policy','privacy'],['Terms','terms']].filter(([,slug])=>existsSync(path.join(pages,slug+'.astro'))||existsSync(path.join(pages,slug,'index.astro')));
 const localizedLinks=locales.flatMap(({slug,lang,label:localeLabel})=>[
  `### ${localeLabel} (${lang})`,'',
@@ -42,6 +45,7 @@ const localizedLinks=locales.flatMap(({slug,lang,label:localeLabel})=>[
 ]);
 const text=[`# ${name}`,'',`> ${description}`,'',`Canonical publication: ${origin}/`,'','This is an independent editorial publication, not the official provider. Articles distinguish published provider information from suggested evaluation methods. Examples and proposed tests are not measured benchmark results. Check dated sources and live provider terms for changing features and prices.','',
  '## Main pages','',...links.map(([title,route,note])=>`- [${title}](${origin}${route}): ${note}`),'',
+ '## Language editions','',...languages.map(([title,slug])=>`- [${title}](${origin}/${slug}/): Localized homepage, publication pages, and five comparison articles.`),'',
  '## Comparisons','',...articles.map(a=>`- [${label(a.title)}](${origin}/blog/${a.slug}/)`),'',
  '## Publication information','',...optional.map(([title,slug])=>`- [${title}](${origin}/${slug}/)`),'',
  '## Full localized editions','',...localizedLinks,
