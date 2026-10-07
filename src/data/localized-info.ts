@@ -39,13 +39,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"プライバシー", description:"静的な yolloai.fun のアクセス情報、任意の Google Analytics、外部リンクと製品サイトとの区別。",
+      title:"プライバシー", description:"自動Google Analytics、Cookie、識別可能なボットの除外とブラウザーのプライバシー設定について。",
       lead:"当サイトにはチャット、画像アップロード、動画生成、会員登録、決済の機能がありません。",
-      blocks:[
-        ["ページ配信","ホスティングと保護事業者は、ページ配信と安全確保のため IP アドレス、要求 URL、時刻、ブラウザー情報などを処理する場合があります。当サイトは Yollo AI の会話や生成した画像を受け取りません。"],
-        ["許可後のアクセス解析","Google Analytics 4 は同意後にだけ読み込みます。選択はブラウザーに最長180日保存され、各ページ下部の設定から撤回できます。広告パーソナライズと Google シグナルは使わず、Global Privacy Control と Do Not Track を尊重します。"],
-        ["Cookie と外部サイト","撤回すると当ドメインから削除可能な解析 Cookie を消しますが、Google が過去に処理したデータまで消すものではありません。国外での処理もあり得ます。yollo.ai に移動した後は同社独自のプライバシー文書を確認してください。"]
-      ]
+      blocks:[["ページ配信","ホスティングと保護事業者は、ページ配信と安全確保のため IP アドレス、要求 URL、時刻、ブラウザー情報などを処理する場合があります。当サイトは Yollo AI の会話や生成した画像を受け取りません。"],["Cookie・プライバシー・自動アクセス","GA4は既知のボットを自動的に除外します。当サイトも識別可能なクローラーと自動化を明示するブラウザーの測定を省略しますが、人間を装うすべてのボットを検出できるわけではありません。Global Privacy Control、Do Not Track、Google Analyticsのブラウザー用オプトアウトを尊重します。設定するページURLからクエリーとフラグメントを除き、参照元はオリジンだけにします。会話、プロンプト、ファイル、フォームの内容は送信しません。Cookieを削除してもGoogleが処理済みのデータは消えません。"],["Google Analyticsによる自動アクセス解析","通常のブラウザーでページを開くと、Google Analytics 4が自動的に開始されます。ページ閲覧、スクロール、外部リンクのクリック、端末情報、流入元を測定します。解析Cookieの有効期間は180日間で、使用時に更新される場合があります。Googleが国外でデータを処理する場合があります。Googleシグナル、広告のパーソナライズ、広告用ストレージは無効です。"]]
     },
     terms: {
       title:"利用条件", description:"独立した Yollo AI 編集サイトの情報の範囲、成人向け閲覧、著作物および外部リンクに関する条件。",
@@ -86,13 +82,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"개인정보", description:"정적 사이트 yolloai.fun의 기술적 접속 정보, 선택적 Google Analytics와 외부 제품 링크 안내입니다.",
+      title:"개인정보", description:"자동 Google Analytics, 쿠키, 식별 가능한 봇 제외 및 브라우저 개인정보 설정 안내.",
       lead:"이 사이트에는 채팅, 이미지 업로드, 영상 생성, 회원 계정 또는 결제 기능이 없습니다.",
-      blocks:[
-        ["페이지 제공에 필요한 정보","호스팅 및 보안 업체가 사이트 제공과 보호를 위해 IP 주소, 요청 URL, 접속 시각, 브라우저 정보를 처리할 수 있습니다. 이 사이트는 Yollo AI에서 나눈 채팅이나 만든 이미지를 받지 않습니다."],
-        ["동의한 뒤에만 분석","Google Analytics 4는 동의 후에만 로드합니다. 선택은 브라우저에 최대 180일 보관되고 각 페이지 아래 설정에서 철회할 수 있습니다. 광고 개인화 및 Google 신호는 쓰지 않으며 Global Privacy Control과 Do Not Track을 존중합니다."],
-        ["쿠키와 다른 운영자","철회 시 이 도메인에서 지울 수 있는 분석 쿠키를 제거하지만 Google이 이미 처리한 자료까지 삭제하지는 못합니다. 국외 처리 가능성도 있습니다. yollo.ai로 이동한 뒤에는 해당 업체의 별도 개인정보 정책을 살펴보세요."]
-      ]
+      blocks:[["페이지 제공에 필요한 정보","호스팅 및 보안 업체가 사이트 제공과 보호를 위해 IP 주소, 요청 URL, 접속 시각, 브라우저 정보를 처리할 수 있습니다. 이 사이트는 Yollo AI에서 나눈 채팅이나 만든 이미지를 받지 않습니다."],["쿠키, 개인정보 및 자동화된 방문","GA4는 알려진 봇을 자동으로 제외합니다. 이 사이트도 식별 가능한 크롤러와 자동화임을 명시하는 브라우저를 측정하지 않지만 사람을 흉내 내는 모든 봇을 찾아낼 수는 없습니다. Global Privacy Control, Do Not Track 및 Google Analytics 브라우저 차단 설정을 존중합니다. 설정된 페이지 URL에서 검색 매개변수와 프래그먼트를 제외하고 참조 URL은 출처만 남깁니다. 대화, 프롬프트, 파일 또는 양식 내용을 전송하지 않습니다. 쿠키 삭제로 Google이 이미 처리한 데이터가 지워지지는 않습니다."],["Google Analytics 자동 방문 분석","일반 브라우저에서 페이지를 열면 Google Analytics 4가 자동으로 시작됩니다. 페이지 방문, 스크롤, 외부 링크 클릭, 기기 및 유입 경로를 측정합니다. 분석 쿠키는 180일 후 만료되도록 설정되며 사용 시 갱신될 수 있습니다. Google이 국외에서 데이터를 처리할 수 있습니다. Google Signals, 광고 개인화 및 광고 저장소는 사용하지 않습니다."]]
     },
     terms: {
       title:"이용 조건", description:"독립 Yollo AI 편집 사이트의 정보 범위, 책임 있는 성인 이용, 원본 콘텐츠와 외부 링크에 관한 조건입니다.",
@@ -133,13 +125,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"隱私", description:"靜態網站 yolloai.fun 的技術存取資訊、選擇性 Google Analytics 和外部產品連結說明。",
+      title:"隱私", description:"自動 Google Analytics、Cookie、可識別機器人排除與瀏覽器隱私設定。",
       lead:"本站沒有聊天、圖片上傳、影片生成、會員帳號或付款。",
-      blocks:[
-        ["提供頁面所需資料","託管與安全服務可能為傳送及保護頁面處理 IP 位址、請求網址、時間與瀏覽器資訊。本站不接收你在 Yollo AI 輸入的對話或生成作品。"],
-        ["同意後才載入分析","Google Analytics 4 只在你同意後啟用。選擇最多保存在瀏覽器 180 天，可從每頁頁尾撤回。本站不用廣告個人化或 Google 信號，並尊重 Global Privacy Control 與 Do Not Track。"],
-        ["Cookie 與外部網站","撤回後會清除本網域可控制的分析 Cookie，但無法抹除 Google 先前已處理的資料；亦可能跨境處理。前往 yollo.ai 後，應閱讀對方獨立的隱私文件。"]
-      ]
+      blocks:[["提供頁面所需資料","託管與安全服務可能為傳送及保護頁面處理 IP 位址、請求網址、時間與瀏覽器資訊。本站不接收你在 Yollo AI 輸入的對話或生成作品。"],["Cookie、隱私與自動化流量","GA4 會自動排除已知機器人；本站也會略過可識別爬蟲及明確標示自動化的瀏覽器，但無法保證辨識所有偽裝成人類的機器人。我們尊重 Global Privacy Control、Do Not Track 與 Google Analytics 瀏覽器停用設定。設定的頁面網址不含查詢參數與片段，來源網址只保留來源網域及協定。不傳送對話、提示詞、檔案或表單內容。清除 Cookie 不會刪除 Google 已處理的資料。"],["Google Analytics 自動流量分析","一般瀏覽器開啟頁面時，Google Analytics 4 會自動開始統計頁面瀏覽、捲動、外部連結點擊、裝置資訊與流量來源。分析 Cookie 設定於 180 天後到期，使用時可能更新。Google 可能在境外處理資料。我們不啟用 Google signals、廣告個人化或廣告儲存。"]]
     },
     terms: {
       title:"使用條款", description:"獨立 Yollo AI 編輯網站的資訊用途、負責任的成人閱覽、原創內容與外部連結條件。",
@@ -180,13 +168,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"Privacidad", description:"Qué datos técnicos puede tratar este sitio estático, cuándo se activa Google Analytics y qué ocurre al seguir un enlace externo.",
+      title:"Privacidad", description:"Google Analytics automático, cookies, filtros de robots y preferencias del navegador.",
       lead:"Aquí no hay chat, carga de imágenes, generador, cuenta de usuario ni pago.",
-      blocks:[
-        ["Entrega y protección","El alojamiento y la seguridad pueden procesar IP, URL solicitada, hora y navegador para servir y proteger la web. No recibimos conversaciones ni creaciones hechas dentro de Yollo AI."],
-        ["Analítica solo con permiso","Google Analytics 4 se carga tras tu consentimiento. Guardamos la elección en el navegador hasta 180 días y puedes retirarla desde el pie de cualquier página. No activamos personalización publicitaria ni Google signals y respetamos Global Privacy Control y Do Not Track."],
-        ["Cookies y otros operadores","Al retirar el permiso borramos las cookies analíticas accesibles a este dominio, pero no datos ya tratados por Google; también puede haber tratamiento internacional. En yollo.ai rige la política del proveedor, no la nuestra."]
-      ]
+      blocks:[["Entrega y protección","El alojamiento y la seguridad pueden procesar IP, URL solicitada, hora y navegador para servir y proteger la web. No recibimos conversaciones ni creaciones hechas dentro de Yollo AI."],["Cookies, privacidad y tráfico automatizado","GA4 excluye automáticamente los robots conocidos. También omitimos la medición para rastreadores identificables y navegadores que se declaran automatizados; no podemos detectar todos los robots que imitan a personas. Respetamos Global Privacy Control, Do Not Track y la inhabilitación de Google Analytics del navegador. No enviamos parámetros de búsqueda ni fragmentos en la URL configurada; reducimos las referencias al origen. No enviamos conversaciones, prompts, archivos ni contenidos de formularios. Borrar cookies no elimina datos ya tratados por Google."],["Medición automática con Google Analytics","Google Analytics 4 se inicia automáticamente al abrir una página en un navegador normal. Mide visitas, desplazamientos, clics en enlaces externos, dispositivo y procedencia del tráfico. Las cookies analíticas caducan a los 180 días y pueden renovarse al usarse. Google puede tratar datos fuera de tu país. No activamos Google signals, personalización publicitaria ni almacenamiento publicitario."]]
     },
     terms: {
       title:"Condiciones de uso", description:"Alcance de esta publicación independiente, uso responsable por adultos, contenido original y sitios enlazados.",
@@ -227,13 +211,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"Privacidade", description:"Dados técnicos deste site estático, Google Analytics opcional e diferença entre nossa política e a do produto externo.",
+      title:"Privacidade", description:"Google Analytics automático, cookies, filtros de robôs e preferências do navegador.",
       lead:"Aqui não há chat, upload, geração, conta de usuário nem pagamento.",
-      blocks:[
-        ["Entrega e proteção","Hospedagem e segurança podem processar IP, URL, horário e navegador para entregar e proteger páginas. Não recebemos conversas ou criações feitas no Yollo AI."],
-        ["Análise com consentimento","O Google Analytics 4 carrega só depois de sua permissão. A escolha fica no navegador por até 180 dias e pode ser revogada no rodapé de qualquer página. Não ativamos personalização de anúncios nem Google signals; respeitamos Global Privacy Control e Do Not Track."],
-        ["Cookies e terceiros","Ao revogar, apagamos cookies analíticos acessíveis a este domínio, não informações já processadas pelo Google. O tratamento pode ocorrer fora do seu país. Ao visitar yollo.ai, leia a política própria do fornecedor."]
-      ]
+      blocks:[["Entrega e proteção","Hospedagem e segurança podem processar IP, URL, horário e navegador para entregar e proteger páginas. Não recebemos conversas ou criações feitas no Yollo AI."],["Cookies, privacidade e tráfego automatizado","O GA4 exclui automaticamente robôs conhecidos. Também ignoramos rastreadores identificáveis e navegadores que se declaram automatizados, mas não podemos detectar todos os robôs que imitam pessoas. Respeitamos Global Privacy Control, Do Not Track e a desativação do Google Analytics no navegador. A URL configurada não contém parâmetros de consulta nem fragmentos; referências são reduzidas à origem. Não enviamos conversas, prompts, arquivos ou conteúdo de formulários. Apagar cookies não remove dados já processados pelo Google."],["Medição automática com Google Analytics","O Google Analytics 4 começa automaticamente quando uma página é aberta em um navegador comum. Mede visitas, rolagem, cliques em links externos, dispositivo e origem do tráfego. Os cookies analíticos expiram em 180 dias e podem ser renovados durante o uso. O Google pode processar dados fora do seu país. Google signals, personalização de anúncios e armazenamento publicitário ficam desativados."]]
     },
     terms: {
       title:"Termos de uso", description:"Alcance da publicação independente, uso responsável por adultos, conteúdo original e links externos.",
@@ -274,13 +254,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"Конфиденциальность", description:"Технические данные статического сайта yolloai.fun, необязательная Google Analytics и переходы к внешнему продукту.",
+      title:"Конфиденциальность", description:"Автоматический Google Analytics, cookie, исключение распознаваемых ботов и настройки браузера.",
       lead:"У нас нет чата, загрузки изображений, генератора, личного кабинета или платежей.",
-      blocks:[
-        ["Доставка страниц","Хостинг и защита могут обрабатывать IP-адрес, URL запроса, время и браузер для работы сайта и безопасности. Мы не получаем беседы или работы, созданные в Yollo AI."],
-        ["Аналитика только с разрешения","Google Analytics 4 загружается после согласия. Выбор хранится в браузере до 180 дней и отзывается через настройки внизу любой страницы. Рекламная персонализация и Google signals выключены; Global Privacy Control и Do Not Track учитываются."],
-        ["Cookie и другие операторы","При отзыве удаляются аналитические cookie, доступные нашему домену, но не уже обработанные Google сведения. Возможна передача за границу. После перехода на yollo.ai действует собственная политика провайдера."]
-      ]
+      blocks:[["Доставка страниц","Хостинг и защита могут обрабатывать IP-адрес, URL запроса, время и браузер для работы сайта и безопасности. Мы не получаем беседы или работы, созданные в Yollo AI."],["Cookie, приватность и автоматизированные посещения","GA4 автоматически исключает известных ботов. Сайт также пропускает распознаваемые поисковые роботы и браузеры, явно сообщающие об автоматизации, но не может обнаружить всех ботов, имитирующих человека. Мы учитываем Global Privacy Control, Do Not Track и отключение Google Analytics в браузере. Настроенный URL страницы не содержит параметров запроса и фрагментов; адрес источника сокращается до origin. Переписки, промпты, файлы и содержимое форм не передаются. Удаление cookie не стирает данные, уже обработанные Google."],["Автоматическая статистика Google Analytics","Google Analytics 4 запускается автоматически при открытии страницы в обычном браузере. Измеряются просмотры, прокрутка, переходы по внешним ссылкам, устройство и источники трафика. Аналитические cookie настроены на срок 180 дней и могут продлеваться при использовании. Google может обрабатывать данные за пределами вашей страны. Google signals, персонализация рекламы и рекламное хранилище отключены."]]
     },
     terms: {
       title:"Условия использования", description:"Пределы независимой публикации, ответственное пользование взрослыми, оригинальные материалы и внешние ссылки.",
@@ -321,13 +297,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"Datenschutz", description:"Technische Daten auf der statischen Website yolloai.fun, optionale Google Analytics und Abgrenzung zum externen Produkt.",
+      title:"Datenschutz", description:"Automatisches Google Analytics, Cookies, erkennbare Bots und Datenschutzeinstellungen des Browsers.",
       lead:"Hier gibt es weder Chat noch Bilder-Upload, Generator, Nutzerkonto oder Bezahlung.",
-      blocks:[
-        ["Bereitstellung und Schutz","Hosting und Sicherheitsanbieter können IP-Adresse, angeforderte URL, Zeit und Browserdaten verarbeiten, um Seiten auszuliefern und zu schützen. Wir erhalten keine Yollo-AI-Gespräche oder dort erstellten Medien."],
-        ["Analyse nur nach Einwilligung","Google Analytics 4 wird erst nach Zustimmung geladen. Die Wahl bleibt bis zu 180 Tage im Browser und lässt sich unten auf jeder Seite widerrufen. Werbepersonalisierung und Google signals sind aus; Global Privacy Control und Do Not Track werden berücksichtigt."],
-        ["Cookies und andere Anbieter","Nach Widerruf entfernen wir Analytics-Cookies, auf die diese Domain zugreifen kann, nicht jedoch bereits von Google verarbeitete Daten. Verarbeitung im Ausland ist möglich. Auf yollo.ai gilt die eigene Datenschutzerklärung des Anbieters."]
-      ]
+      blocks:[["Bereitstellung und Schutz","Hosting und Sicherheitsanbieter können IP-Adresse, angeforderte URL, Zeit und Browserdaten verarbeiten, um Seiten auszuliefern und zu schützen. Wir erhalten keine Yollo-AI-Gespräche oder dort erstellten Medien."],["Cookies, Datenschutz und automatisierte Zugriffe","GA4 schließt bekannte Bots automatisch aus. Auch diese Website überspringt erkennbare Crawler und Browser, die sich ausdrücklich als automatisiert melden. Nicht alle Bots, die Menschen imitieren, können erkannt werden. Wir beachten Global Privacy Control, Do Not Track und die Google-Analytics-Deaktivierung im Browser. Die konfigurierte Seitenadresse enthält keine Abfrageparameter oder Fragmente; Verweisadressen werden auf ihren Ursprung reduziert. Chats, Prompts, Dateien und Formularinhalte werden nicht gesendet. Das Löschen von Cookies entfernt keine bereits von Google verarbeiteten Daten."],["Automatische Messung mit Google Analytics","Google Analytics 4 startet automatisch, wenn eine Seite in einem normalen Browser geöffnet wird. Erfasst werden Seitenaufrufe, Scrollen, Klicks auf externe Links, Geräteinformationen und Zugriffsquellen. Analyse-Cookies laufen nach 180 Tagen ab und können bei Nutzung erneuert werden. Google kann Daten außerhalb deines Landes verarbeiten. Google signals, personalisierte Werbung und Werbespeicherung sind deaktiviert."]]
     },
     terms: {
       title:"Nutzungsbedingungen", description:"Grenzen der unabhängigen Veröffentlichung, verantwortungsvolle Nutzung durch Erwachsene, eigene Inhalte und externe Links.",
@@ -368,13 +340,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"Confidentialité", description:"Données techniques sur le site statique yolloai.fun, Google Analytics facultatif et distinction avec le produit externe.",
+      title:"Confidentialité", description:"Google Analytics automatique, cookies, exclusion des robots identifiables et préférences du navigateur.",
       lead:"Ce site n'a ni chat, ni téléchargement d'images, ni générateur, compte ou paiement.",
-      blocks:[
-        ["Mise à disposition","Hébergement et protection peuvent traiter adresse IP, URL demandée, heure et navigateur pour livrer et sécuriser les pages. Nous ne recevons pas les conversations ou créations faites sur Yollo AI."],
-        ["Mesure d'audience avec accord","Google Analytics 4 n'est chargé qu'après votre consentement. Le choix reste dans le navigateur jusqu'à 180 jours et se retire en bas de chaque page. Ni personnalisation publicitaire ni Google signals ; Global Privacy Control et Do Not Track sont respectés."],
-        ["Cookies et sites tiers","Après retrait, nous supprimons les cookies de mesure accessibles à ce domaine, mais pas les données déjà traitées par Google. Un traitement à l'étranger reste possible. Sur yollo.ai, lisez la politique propre au fournisseur."]
-      ]
+      blocks:[["Mise à disposition","Hébergement et protection peuvent traiter adresse IP, URL demandée, heure et navigateur pour livrer et sécuriser les pages. Nous ne recevons pas les conversations ou créations faites sur Yollo AI."],["Cookies, confidentialité et trafic automatisé","GA4 exclut automatiquement les robots connus. Ce site ignore aussi les robots identifiables et les navigateurs qui déclarent être automatisés, sans pouvoir détecter tous les robots imitant des personnes. Nous respectons Global Privacy Control, Do Not Track et la désactivation de Google Analytics dans le navigateur. L’URL configurée ne contient ni paramètres de recherche ni fragments ; les références sont réduites à leur origine. Nous n’envoyons pas de conversations, prompts, fichiers ou contenus de formulaires. Effacer les cookies ne supprime pas les données déjà traitées par Google."],["Mesure automatique avec Google Analytics","Google Analytics 4 démarre automatiquement à l’ouverture d’une page dans un navigateur ordinaire. Il mesure les visites, le défilement, les clics sur les liens externes, l’appareil et les sources de trafic. Les cookies analytiques expirent après 180 jours et peuvent être renouvelés lors de leur utilisation. Google peut traiter les données hors de votre pays. Google signals, la personnalisation publicitaire et le stockage publicitaire sont désactivés."]]
     },
     terms: {
       title:"Conditions d'utilisation", description:"Portée de la publication indépendante, usage responsable par des adultes, créations originales et liens externes.",
@@ -415,13 +383,9 @@ export const information: Record<Locale, Record<InfoPageKey, InfoCopy>> = {
       ]
     },
     privacy: {
-      title:"الخصوصية", description:"البيانات التقنية في yolloai.fun الثابت، وتحليلات Google الاختيارية، والفرق عن سياسة المنتج الخارجي.",
+      title:"الخصوصية", description:"Google Analytics التلقائي وملفات الارتباط واستبعاد الروبوتات المعروفة وتفضيلات المتصفح.",
       lead:"لا توجد هنا محادثة أو رفع صور أو مولد أو حساب مستخدم أو دفع.",
-      blocks:[
-        ["تقديم الصفحات وحمايتها","قد تعالج خدمات الاستضافة والأمن عنوان IP والرابط المطلوب والوقت وبيانات المتصفح لتقديم الصفحات وحمايتها. لا نتلقى محادثات Yollo AI أو الأعمال المنشأة فيه."],
-        ["التحليلات بعد الموافقة فقط","لا يُحمّل Google Analytics 4 إلا بعد موافقتك. يبقى الخيار في المتصفح حتى 180 يوماً ويمكن سحبه من أسفل كل صفحة. لا نفعّل تخصيص الإعلانات أو Google signals ونحترم Global Privacy Control وDo Not Track."],
-        ["ملفات الارتباط والمواقع الأخرى","عند سحب الموافقة نحذف ملفات التحليل التي يمكن لهذا النطاق التحكم بها، لا البيانات التي سبق أن عالجتها Google. قد تتم المعالجة خارج بلدك. بعد الانتقال إلى yollo.ai اقرأ سياسة المزود الخاصة."]
-      ]
+      blocks:[["تقديم الصفحات وحمايتها","قد تعالج خدمات الاستضافة والأمن عنوان IP والرابط المطلوب والوقت وبيانات المتصفح لتقديم الصفحات وحمايتها. لا نتلقى محادثات Yollo AI أو الأعمال المنشأة فيه."],["ملفات الارتباط والخصوصية والزيارات الآلية","يستبعد GA4 الروبوتات المعروفة تلقائياً. ويتجاوز الموقع أيضاً برامج الزحف القابلة للتعرّف والمتصفحات التي تصرّح بأنها آلية، لكن لا يمكن اكتشاف كل الروبوتات التي تقلّد البشر. نحترم Global Privacy Control وDo Not Track وإعداد تعطيل Google Analytics في المتصفح. لا يتضمن عنوان الصفحة المهيّأ معاملات البحث أو الأجزاء، وتقتصر عناوين الإحالة على أصلها. لا نرسل المحادثات أو المطالبات أو الملفات أو محتويات النماذج. حذف ملفات الارتباط لا يمحو بيانات عالجتها Google بالفعل."],["القياس التلقائي باستخدام Google Analytics","يبدأ Google Analytics 4 تلقائياً عند فتح الصفحة في متصفح عادي. يقيس الزيارات والتمرير والنقرات على الروابط الخارجية ومعلومات الجهاز ومصادر الزيارات. تنتهي ملفات الارتباط التحليلية بعد 180 يوماً وقد تتجدد عند استخدامها. قد تعالج Google البيانات خارج بلدك. لا نفعّل Google signals أو تخصيص الإعلانات أو التخزين الإعلاني."]]
     },
     terms: {
       title:"شروط الاستخدام", description:"حدود هذا النشر المستقل، والاستخدام المسؤول للبالغين، والمحتوى الأصلي والروابط الخارجية.",
