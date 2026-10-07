@@ -10,7 +10,8 @@ const output = path.join(root, "dist", "client");
 const origin = "https://yolloai.fun";
 const mime = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".webp": "image/webp", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".png": "image/png" };
 const browser = await chromium.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
-const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+const context = await browser.newContext({ viewport: { width: 390, height: 844 }, userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36" });
+await context.addInitScript(() => Object.defineProperty(navigator, "webdriver", { get: () => false }));
 const tagRequests = [];
 try {
   await context.route(`${origin}/**`, async (route) => {
@@ -27,28 +28,12 @@ try {
   await context.route("https://fonts.gstatic.com/**", (route) => route.abort());
   const page = await context.newPage();
   const assert = (condition, message) => { if (!condition) throw Error(message); };
-  await page.goto(`${origin}/ja/`, { waitUntil: "domcontentloaded" });
-  await page.locator("#analytics-notice").waitFor({ state: "visible" });
-  assert(tagRequests.length === 0, "Google analytics loaded before consent");
-  assert((await page.locator("#analytics-accept").textContent()).includes("解析"), "Japanese consent button untranslated");
-  await page.locator("#analytics-accept").click();
-  await page.waitForTimeout(120);
-  assert(tagRequests.length === 1, "Google tag did not load exactly once after opt-in");
-  const granted = await page.evaluate(() => JSON.parse(localStorage.getItem("site-analytics-consent-v1") || "null")?.value);
-  assert(granted === "granted", "opt-in not saved");
-  await page.locator("#analytics-settings").click();
-  assert((await page.locator("#analytics-status").textContent()).includes("有効"), "Japanese active status untranslated");
-  await page.locator("#analytics-decline").click();
-  assert(await page.evaluate(() => window[Object.keys(window).find((key) => key.startsWith("ga-disable-G-"))]), "analytics not disabled after withdrawal");
-  await page.reload({ waitUntil: "domcontentloaded" });
-  assert(await page.locator("#analytics-notice").isHidden(), "withdrawn consent not preserved");
-  assert(tagRequests.length === 1, "Google tag loaded after opt-out");
-  await page.goto(`${origin}/ar/`, { waitUntil: "domcontentloaded" });
+  await page.goto(origin + "/ja/", { waitUntil: "load" });
+  assert(await page.locator("#analytics-notice,#analytics-accept,#analytics-settings").count() === 0, "Consent UI remains");
+  assert(tagRequests.length === 1, "Japanese visit did not load the Google tag automatically exactly once");
+  await page.goto(origin + "/ar/", { waitUntil: "load" });
   assert(await page.locator("html").getAttribute("dir") === "rtl", "Arabic page not RTL");
-  await page.locator("#analytics-settings").click();
-  assert((await page.locator("#analytics-status").textContent()).includes("متوقفة"), "Arabic off status untranslated");
-  assert(await page.locator("#analytics-notice a").getAttribute("href") === "/ar/privacy/", "Arabic consent privacy link wrong");
-  await page.locator("#analytics-decline").click();
+  assert(tagRequests.length === 2, "Arabic visit did not load the Google tag automatically");
   await page.locator("[data-menu-button]").click();
   assert(await page.locator(".mobile-language-links a").count() === 10, "mobile language menu incomplete");
   await page.locator('.mobile-language-links a[lang="ja"]').click();
@@ -58,7 +43,12 @@ try {
   await page.locator(".language-switch summary").click();
   await page.locator('.language-options a[lang="es"]').click();
   assert(new URL(page.url()).pathname === "/es/blog/yolloai-vs-character-ai/", "desktop article language switch failed");
-  console.log("Yollo AI: Japanese/Arabic consent, opt-in/withdrawal, no pre-consent Google request, mobile and desktop language switching passed.");
+  await page.waitForLoadState("load");
+  await page.addInitScript(() => Object.defineProperty(navigator, "globalPrivacyControl", { get: () => true }));
+  const beforePrivateVisit = tagRequests.length;
+  await page.reload({ waitUntil: "load" });
+  assert(tagRequests.length === beforePrivateVisit, "Google tag loaded despite GPC");
+  console.log("Yollo AI: automatic Japanese/Arabic analytics, GPC, mobile and desktop language switching passed; test requests intercepted.");
 } finally {
   await context.close();
   await browser.close();
