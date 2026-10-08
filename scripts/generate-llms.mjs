@@ -14,7 +14,7 @@ const pages=path.join(root,'src/pages');
 const blog=path.join(root,'src/content/blog');
 const localeSource=readFileSync(path.join(root,'src/data/locales.ts'),'utf8');
 const localeModule={exports:{}};
-new Function('module','exports',transformSync(localeSource,{loader:'ts',format:'cjs'}).code)(localeModule,localeModule.exports);
+new Function('module','exports','require',transformSync(localeSource,{loader:'ts',format:'cjs'}).code)(localeModule,localeModule.exports,createRequire(path.join(root,'src/data/locales.ts')));
 const locales=localeModule.exports.locales;
 if(locales.length!==9||new Set(locales.map(locale=>locale.slug)).size!==9)throw Error('Expected all nine complete public Yollo AI editions');
 const articles=readdirSync(blog).filter(f=>f.endsWith('.md')).sort().map(f=>{
@@ -35,7 +35,7 @@ const localizedLinks=locales.flatMap(({slug,lang,label:localeLabel})=>[
  `### ${localeLabel} (${lang})`,'',
  `- [Yollo AI — ${localeLabel}](${origin}/${slug}/)`,
  `- [Blog — ${localeLabel}](${origin}/${slug}/blog/)`,
- ...articles.map(a=>{
+ ...articles.filter(a=>localizedArticles[slug]?.[a.slug.replace(/^yolloai-vs-/,'')]).map(a=>{
    const key=a.slug.replace(/^yolloai-vs-/,'');
    const title=localizedArticles[slug]?.[key]?.title;
    if(!title)throw Error('Missing localized article title: '+slug+'/'+key);
@@ -43,13 +43,21 @@ const localizedLinks=locales.flatMap(({slug,lang,label:localeLabel})=>[
  }),
  ...optional.map(([title,page])=>`- [${title} — ${localeLabel}](${origin}/${slug}/${page}/)`),'',
 ]);
-const text=[`# ${name}`,'',`> ${description}`,'',`Canonical publication: ${origin}/`,'','This is an independent editorial publication, not the official provider. Articles distinguish published provider information from suggested evaluation methods. Examples and proposed tests are not measured benchmark results. Check dated sources and live provider terms for changing features and prices.','',
+let text =[`# ${name}`,'',`> ${description}`,'',`Canonical publication: ${origin}/`,'','This is an independent editorial publication, not the official provider. Articles distinguish published provider information from suggested evaluation methods. Examples and proposed tests are not measured benchmark results. Check dated sources and live provider terms for changing features and prices.','',
  '## Main pages','',...links.map(([title,route,note])=>`- [${title}](${origin}${route}): ${note}`),'',
  '## Language editions','',...languages.map(([title,slug])=>`- [${title}](${origin}/${slug}/): Localized homepage, publication pages, and five comparison articles.`),'',
  '## Comparisons','',...articles.map(a=>`- [${label(a.title)}](${origin}/blog/${a.slug}/)`),'',
  '## Publication information','',...optional.map(([title,slug])=>`- [${title}](${origin}/${slug}/)`),'',
  '## Full localized editions','',...localizedLinks,
  '## Optional','',`- [XML sitemap](${origin}/sitemap-index.xml): Canonical page inventory.`,`- [RSS feed](${origin}/rss.xml): Published article updates.`,`- [Robots policy](${origin}/robots.txt): Crawler access directives.`,''].join('\n');
+
+// New English articles do not create language counterparts.
+const englishEditorialSet = new Set(JSON.parse(readFileSync(path.join(root, 'src/data/editorialSchedule.json'), 'utf8')).articles.map(a => a.slug));
+function filterEnglishEditorialLinks(line) {
+  const match = line.match(/https:\/\/[^/]+\/(?:ja|ko|zh-hant|es|pt-br|ru|de|fr|ar)\/blog\/([^/)\s]+)\//i);
+  return !match || !englishEditorialSet.has(match[1]);
+}
+text = text.split('\n').filter(filterEnglishEditorialLinks).join('\n');
 const destination=path.join(root,'public/llms.txt');
 if(process.argv.includes('--check')){
  if(!existsSync(destination)||readFileSync(destination,'utf8')!==text)throw Error('llms.txt is missing or stale; run npm run generate:llms');

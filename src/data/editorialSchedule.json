@@ -1,0 +1,86 @@
+{
+  "domain": "yolloai.fun",
+  "timeZone": "Asia/Shanghai",
+  "policy": "New articles are English-only. Quality review is required before a date can enable a release. Existing publications are preserved.",
+  "articles": [
+    {
+      "order": 1,
+      "slug": "yollo-vs-kindroid-revising-story-canon",
+      "title": "Yollo AI vs Kindroid: Revising Story Canon",
+      "opponent": "Kindroid",
+      "readerQuestion": "a visual story concept versus revisable narrative instructions",
+      "releaseAt": "2026-10-08T05:25:48.580Z",
+      "language": "en",
+      "approved": true,
+      "status": "editorially-reviewed",
+      "sourcesCheckedAt": "2026-10-08",
+      "reviewedSha256": "c481ae1f14d14185fdae5a58c45878d6be1d0727a8719ecc11c656f4293bb2cb",
+      "wordCount": 510,
+      "editorialIntent": "Maintain an original fictional scene through one deliberate world-fact revision.",
+      "sources": [
+        [
+          "Yollo Official Website",
+          "https://www.yollo.ai/"
+        ],
+        [
+          "Kindroid Personality Controls",
+          "https://kindroid.ai/v2/docs/customizing-personality/"
+        ]
+      ]
+    },
+    {
+      "order": 2,
+      "slug": "yollo-vs-nomi-plot-or-relationship",
+      "title": "Yollo AI vs Nomi: Plot Recall or Relationship?",
+      "opponent": "Nomi",
+      "readerQuestion": "remembering a plot event versus developing a continuing relationship",
+      "releaseAt": "2026-10-16T02:28:46.310Z",
+      "language": "en",
+      "approved": true,
+      "status": "editorially-reviewed",
+      "sourcesCheckedAt": "2026-10-08",
+      "reviewedSha256": "27aa367bdb322a891a6cc05c1a848e6cc7be96e71c7bad76dd8c310e85c0f0a3",
+      "wordCount": 510,
+      "editorialIntent": "Distinguish factual story continuity from the subjective quality of a recurring fictional relationship.",
+      "sources": [
+        [
+          "Yollo Official Website",
+          "https://www.yollo.ai/"
+        ],
+        [
+          "Nomi Backstory+",
+          "https://wiki.nomi.ai/What_is_Backstory%2B%3F"
+        ],
+        [
+          "Nomi Mind Map Overview",
+          "https://nomi.ai/updates/mind-map-2-0-bringing-nomi-memory-into-view/"
+        ]
+      ]
+    },
+    {
+      "order": 3,
+      "slug": "yollo-vs-replika-avatar-or-scene",
+      "title": "Yollo AI vs Replika: Avatar or Generated Scene?",
+      "opponent": "Replika",
+      "readerQuestion": "an avatar conversation versus a generated visual scene",
+      "releaseAt": "2026-10-23T08:14:02.864Z",
+      "language": "en",
+      "approved": true,
+      "status": "editorially-reviewed",
+      "sourcesCheckedAt": "2026-10-08",
+      "reviewedSha256": "a0e5d97e71d7c51c3cf433e9b62c7f2faa1a06cb518992846153ce27adb896b0",
+      "wordCount": 495,
+      "editorialIntent": "Choose the intended visual purpose before evaluating appearance or conversational continuity.",
+      "sources": [
+        [
+          "Yollo Official Website",
+          "https://www.yollo.ai/"
+        ],
+        [
+          "Replika Avatar Guide",
+          "https://help.replika.com/hc/en-us/articles/360046050652-How-do-I-change-my-Replika-s-avatar"
+        ]
+      ]
+    }
+  ]
+}
