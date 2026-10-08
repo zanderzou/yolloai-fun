@@ -25,14 +25,14 @@ const names = new Map([["en", "English"], ...locales.map((entry) => [entry.lang,
       {languageLinks.map((entry) => <a href={entry.href} lang={entry.lang} aria-current={entry.lang === (locales.find((item) => item.slug === locale)?.lang ?? "en") ? "page" : undefined}>{names.get(entry.lang)}</a>)}
     </div>
   </details>
-  <a class="official-link" href="https://www.playbox.com/?ref=zanderzou" rel="sponsored nofollow noopener noreferrer" target="_blank">{label?.official ?? "Visit Yollo AI"} <Icon name="arrow" /></a>
+  <a class="official-link" href="https://spicy-box.com/?utm_ref=c546b6e92223b411" rel="sponsored nofollow noopener noreferrer" target="_blank">{label?.official ?? "Visit Yollo AI"} <Icon name="arrow" /></a>
   <button class="menu-button" type="button" aria-label={locale ? a11y[locale].menu : "Open menu"} aria-expanded="false" data-menu-button data-label-open={locale ? a11y[locale].menu : "Open menu"} data-label-close={locale ? a11y[locale].closeMenu : "Close menu"}><Icon name="menu" /></button>
   <div class="mobile-nav" data-mobile-nav>
     <a href={`${home}#how-it-works`}>{label?.workflow ?? "How it works"}</a>
     <a href={`${home}#features`}>{label?.features ?? "Features"}</a>
     <a href={`${home}#compare`}>{label?.compare ?? "Compare"}</a>
     <a href={blog}>{label?.blog ?? "Blog"}</a>
-    <a href="https://www.playbox.com/?ref=zanderzou" rel="sponsored nofollow noopener noreferrer" target="_blank">{label?.official ?? "Official Yollo AI"}</a>
+    <a href="https://spicy-box.com/?utm_ref=c546b6e92223b411" rel="sponsored nofollow noopener noreferrer" target="_blank">{label?.official ?? "Official Yollo AI"}</a>
     <div class="mobile-language-links" aria-label={label?.language ?? "Language"}>
       {languageLinks.map((entry) => <a href={entry.href} lang={entry.lang} aria-current={entry.lang === (locales.find((item) => item.slug === locale)?.lang ?? "en") ? "page" : undefined}>{names.get(entry.lang)}</a>)}
     </div>
