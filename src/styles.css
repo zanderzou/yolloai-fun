@@ -201,3 +201,13 @@ body:before{background:radial-gradient(circle at 78% 18%,rgba(117,72,244,.16),tr
   [dir="rtl"] .hero:after{background:linear-gradient(0deg,var(--bg) 42%,rgba(9,5,8,.58) 73%,rgba(9,5,8,.12))}
   [dir="rtl"] .breadcrumbs{justify-content:flex-start}
 }
+/* Mobile first-fold action: preserve the portrait, then show one button before the long intro. */
+@media(max-width:640px){
+  .hero{align-items:flex-start;min-height:760px;padding-bottom:28px}
+  .hero-copy,.locale-home-hero .hero-copy{display:flex;flex-direction:column;margin-block-start:clamp(255px,36vh,305px)}
+  .hero-copy>p:not(.hero-tagline){order:4;margin-top:12px}
+  .hero-actions{order:3;margin-top:16px}
+  .hero-trust{order:5}
+  .hero h1{margin-block:12px 13px}
+  .hero-tagline{margin:0 0 8px!important}
+}
