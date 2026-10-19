@@ -1,0 +1,12 @@
+{
+  "domain": "yolloai.fun",
+  "label": "yolloai.fun",
+  "origin": "https://yolloai.fun",
+  "slugs": [
+    "yollo-cancel-subscription-payment-channel",
+    "yollo-seven-day-retention-account-data-scope"
+  ],
+  "articlePrefix": "/blog/",
+  "homePath": "/",
+  "blogPath": "/blog/"
+}

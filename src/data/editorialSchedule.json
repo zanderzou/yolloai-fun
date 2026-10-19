@@ -1,7 +1,7 @@
 {
   "domain": "yolloai.fun",
   "timeZone": "Asia/Shanghai",
-  "policy": "New articles are English-only. Quality review is required before a date can enable a release. Existing publications are preserved.",
+  "policy": "Only reviewed English guides are added. Existing releases and translations are preserved. Server time controls availability.",
   "articles": [
     {
       "order": 1,
@@ -81,6 +81,57 @@
           "https://help.replika.com/hc/en-us/articles/360046050652-How-do-I-change-my-Replika-s-avatar"
         ]
       ]
+    },
+    {
+      "order": 4,
+      "slug": "yollo-cancel-subscription-payment-channel",
+      "title": "Cancel Yollo AI: Match the Purchase Channel Before Choosing a Route",
+      "readerQuestion": "Identify the billing manager for an existing Yollo purchase and preserve confirmation of the intended renewal change.",
+      "releaseAt": "2026-10-30T23:14:11.864Z",
+      "language": "en",
+      "approved": true,
+      "status": "editorially-reviewed",
+      "sourcesCheckedAt": "2026-10-19",
+      "reviewedSha256": "b8a6f788190394793e5a9e44c601ade6efb879ebb8bab4ee85d2dc1584ec0454",
+      "wordCount": 417,
+      "editorialIntent": "A receipt-first route comparison that acknowledges the two published descriptions instead of asserting one universal interface.",
+      "sources": [
+        [
+          "Yollo: website terms and purchase-channel cancellation",
+          "https://www.yollo.ai/terms"
+        ],
+        [
+          "Yollo: app-published user agreement",
+          "https://app.yollo.ai/user-agreement.html"
+        ]
+      ]
+    },
+    {
+      "order": 5,
+      "slug": "yollo-seven-day-retention-account-data-scope",
+      "title": "Does Yollo Delete Data in Seven Days? Check the Data Category",
+      "readerQuestion": "Understand the scope of a seven-day statement without applying it to every account record or service context.",
+      "releaseAt": "2026-11-07T03:39:32.864Z",
+      "language": "en",
+      "approved": true,
+      "status": "editorially-reviewed",
+      "sourcesCheckedAt": "2026-10-19",
+      "reviewedSha256": "a14b5c5d76eb867f4ed648e3ff68ea09ff4549ad553891c21c9be8f2c80504ea",
+      "wordCount": 417,
+      "editorialIntent": "A three-category retention map and a precise clarification method without asserting backend deletion or an account-recovery archive.",
+      "sources": [
+        [
+          "Yollo: app-published privacy policy",
+          "https://app.yollo.ai/privacy-policy.html"
+        ],
+        [
+          "Yollo: website privacy and retention statement",
+          "https://www.yollo.ai/privacy"
+        ]
+      ]
     }
-  ]
+  ],
+  "baselinePhase": 1,
+  "articlePrefix": "/blog/",
+  "contentDirectory": "src/content/blog"
 }
