@@ -50,6 +50,7 @@ export async function applyLocalizedExperience(out,config){
   }
   for(const node of nodes){if(extra.has(node)){remove(node);continue}
    if(config.domain==='yolloai.fun'&&translated&&route===`/${lang}/blog/`&&cls(node)==='button primary'&&node.attributes.href==='https://www.gptgirlfriend.online/?ref=oty3mmu')continue;
+   if(node.name==='a'&&node.attributes.href==='https://www.gptgirlfriend.online/?ref=oty3mmu'&&!/\bsponsored\b/.test(node.attributes.rel??'')&&ancestors(node).some(n=>n.name==='footer'))continue;
    if(promo(node)){
     // English mobile entrances must carry the same paid-link attributes.
     if(!translated){const rels=new Set((node.attributes.rel??'').split(/\s+/).filter(Boolean));rels.add('sponsored');rels.add('nofollow');if(node.attributes.target==='_blank')rels.add('noopener');if([...rels].join(' ')!==(node.attributes.rel??''))updateOpen(node,{rel:[...rels].join(' ')});}
