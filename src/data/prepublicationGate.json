@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "domain": "yolloai.fun",
+  "grandfathered": [
+    {
+      "order": 1,
+      "slug": "yollo-vs-kindroid-revising-story-canon",
+      "releaseAt": "2026-10-08T05:25:48.580Z",
+      "status": 200,
+      "liveVerifiedAt": "2026-10-23T05:17:45.369Z",
+      "canonical": "https://yolloai.fun/blog/yollo-vs-kindroid-revising-story-canon/",
+      "language": "en",
+      "titleMatches": true,
+      "discoveryVerified": true,
+      "sourceCommit": "6b8bf23c06e1b1eaf9491f6e30f8728c592ff2d5",
+      "deploymentId": "e6effa01-a00a-452a-9e34-70200d5af0c5",
+      "responseSha256": "a183f02a428fbba5ece898de082103c1ca9dad974051f1f476fe6f378c55dfe4"
+    },
+    {
+      "order": 2,
+      "slug": "yollo-vs-nomi-plot-or-relationship",
+      "releaseAt": "2026-10-16T02:28:46.310Z",
+      "status": 200,
+      "liveVerifiedAt": "2026-10-23T05:17:45.370Z",
+      "canonical": "https://yolloai.fun/blog/yollo-vs-nomi-plot-or-relationship/",
+      "language": "en",
+      "titleMatches": true,
+      "discoveryVerified": true,
+      "sourceCommit": "6b8bf23c06e1b1eaf9491f6e30f8728c592ff2d5",
+      "deploymentId": "e6effa01-a00a-452a-9e34-70200d5af0c5",
+      "responseSha256": "eac7a7588affc85f5823753326a2481f0b7d644de9a9d69678286f35f55579cd"
+    }
+  ],
+  "certificates": {}
+}
