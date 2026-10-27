@@ -18,7 +18,7 @@ sources:
   - name: "SpicyChat AI lorebook documentation"
     url: "https://docs.spicychat.ai/product-guides/lorebook"
   - name: "SpicyChat AI semantic-memory documentation"
-    url: "https://docs.spicychat.ai/product-guides/premium-features/semantic-memory-2-0"
+    url: "https://docs.spicychat.ai/product-guides/premium-features/semantic-memory-2.0"
 ---
 
 <p class="article-lede">The most useful Yollo AI vs SpicyChat AI question is not which landing page promises more freedom. It is whether your creative task begins with a <em>scene to visualize</em> or a <em>character whose world needs to stay coherent</em>. Yollo describes personas, model choice, image generation and short video alongside roleplay. SpicyChat's own documentation goes into character chats, keyword-triggered lorebooks and optional semantic memory. Neither list proves a better result without a matched test.</p>
