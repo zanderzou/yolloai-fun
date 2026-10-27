@@ -31,5 +31,59 @@
       "responseSha256": "eac7a7588affc85f5823753326a2481f0b7d644de9a9d69678286f35f55579cd"
     }
   ],
-  "certificates": {}
+  "certificates": {
+    "yollo-vs-replika-avatar-or-scene": {
+      "schemaVersion": 1,
+      "skill": {
+        "name": "write-tested-seo",
+        "version": "1.5"
+      },
+      "reviewStandard": "portfolio-basic-quality-20261027",
+      "status": "validated",
+      "domain": "yolloai.fun",
+      "slug": "yollo-vs-replika-avatar-or-scene",
+      "order": 3,
+      "releaseAt": "2026-10-23T08:14:02.864Z",
+      "activationAt": "2026-10-27T04:37:10.772Z",
+      "reviewedAt": "2026-10-27T04:37:10.772Z",
+      "factsCheckedAt": "2026-10-27T04:37:10.772Z",
+      "reviewedBy": "Codex editorial review following the October27 human project override",
+      "contentSha256": "2c8244107c2297e1f3dd369f760b1b0e45e036d67382643128b7cd86b8903305",
+      "editorialReview": {
+        "readable": true,
+        "useful": true,
+        "factual": true,
+        "experienceClaims": "none",
+        "note": "Reviewed original final article and primary source scope; correct material outdated claims, preserve honest limits, no fabricated product experience."
+      },
+      "observations": [],
+      "officialSources": [
+        {
+          "url": "https://www.yollo.ai/",
+          "checkedAt": "2026-10-27T04:28:33.408Z",
+          "status": 200,
+          "claim": "Relevant current published feature/policy wording reviewed; no account behavior or product testing implied.",
+          "evidence": [
+            {
+              "path": "private-editorial-evidence/basic-review-20261027/source-1c63aaaa30d7939e.json",
+              "sha256": "98012bd79e86cec9c92879f0d6dac426fcad2bd0a34c46639e8983f7751e41c5"
+            }
+          ]
+        },
+        {
+          "url": "https://help.replika.com/hc/en-us/articles/360046050652-How-do-I-change-my-Replika-s-avatar",
+          "checkedAt": "2026-10-27T04:37:10.772Z",
+          "status": "content-retrieved",
+          "claim": "Relevant current published feature/policy wording reviewed; no account behavior or product testing implied.",
+          "evidence": [
+            {
+              "path": "private-editorial-evidence/basic-review-20261027/source-8c361a5c4ca31960.json",
+              "sha256": "b2c8fd63e97ee735a83358da625ef88edacc94f7ea9f22652a52e2cc2615d53b"
+            }
+          ]
+        }
+      ],
+      "certificateDigest": "c2423b5b1374ebc3370d5b17199ed683135dd1a1fb6557f7c66aad0950115aa6"
+    }
+  }
 }

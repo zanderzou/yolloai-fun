@@ -1,0 +1,20 @@
+{
+  "domain": "yolloai.fun",
+  "slug": "yollo-vs-replika-avatar-or-scene",
+  "reviewedAt": "2026-10-27T04:37:10.772Z",
+  "standard": "portfolio-basic-quality-20261027",
+  "materialRevision": false,
+  "sources": [
+    "https://www.yollo.ai/",
+    "https://help.replika.com/hc/en-us/articles/360046050652-How-do-I-change-my-Replika-s-avatar"
+  ],
+  "quality": {
+    "readable": true,
+    "useful": true,
+    "factual": true,
+    "experienceClaims": "none",
+    "note": "Reviewed original final article and primary source scope; correct material outdated claims, preserve honest limits, no fabricated product experience."
+  },
+  "contentSha256": "2c8244107c2297e1f3dd369f760b1b0e45e036d67382643128b7cd86b8903305",
+  "limits": "Informational guide and suggested fictional exercises; no product-account, transaction, backend or generation test claimed."
+}
