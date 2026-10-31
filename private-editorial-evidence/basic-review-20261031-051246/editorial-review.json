@@ -1,0 +1,155 @@
+{
+  "reviewedAt": "2026-10-31T05:20:03.004Z",
+  "domain": "yolloai.fun",
+  "slug": "yollo-cancel-subscription-payment-channel",
+  "reviewStandard": "portfolio-basic-quality-20261027",
+  "skill": {
+    "name": "write-tested-seo",
+    "version": "1.5",
+    "projectOverride": "October27 basic factuality and usefulness; no invented experience or mandatory hands-on quota"
+  },
+  "sourceCommit": "84ab84d022d2991ad2c92beb475abc66d4f8f473",
+  "production": {
+    "id": "a930064b-eafc-41ae-88c6-4f63bdf4339f",
+    "url": "https://a930064b.yolloai-fun.pages.dev",
+    "commit": "84ab84d022d2991ad2c92beb475abc66d4f8f473",
+    "sourceShaRaw": "84ab84d022d2991ad2c92beb475abc66d4f8f473",
+    "createdAt": "2026-10-29T13:27:51.796834Z"
+  },
+  "sourceFile": "src/editorial-drafts/yollo-cancel-subscription-payment-channel.md",
+  "rawBytes": 3904,
+  "contentSha256": "b8a6f788190394793e5a9e44c601ade6efb879ebb8bab4ee85d2dc1584ec0454",
+  "terminalLfPreserved": true,
+  "targetRepositoryInstructions": "Exact-main AGENTS read and current root policy applied.",
+  "sources": [
+    {
+      "url": "https://www.yollo.ai/terms",
+      "status": "content-retrieved",
+      "checkedAt": "2026-10-31T05:20:02.870Z",
+      "error": "UND_ERR_CONNECT_TIMEOUT",
+      "contentRetrievedDirectly": false,
+      "textSha256": null,
+      "webSearchAndOriginalPageOpened": true,
+      "webReadCompletedAt": "2026-10-31T05:19:40.587Z",
+      "directStatus": "unknown",
+      "directError": "UND_ERR_CONNECT_TIMEOUT",
+      "webRetrievalStatus": "content-retrieved",
+      "summary": "Website terms section3 says monthly/annual subscriptions may exist and cancellation uses original payment partner."
+    },
+    {
+      "url": "https://app.yollo.ai/user-agreement.html",
+      "finalUrl": "https://app.yollo.ai/user-agreement.html",
+      "status": 200,
+      "checkedAt": "2026-10-31T05:19:43.256Z",
+      "robots": null,
+      "cache": null,
+      "sha256": "6a799b6114cffbfeaa2464a389ea9799859149fcdea7f47e2564ba250b1af8d0",
+      "contentRetrievedDirectly": true,
+      "textSha256": "7d5b4d26dfeccfd66829cf0d85e66ad77d984eef354de66879dd509535526a54",
+      "webSearchAndOriginalPageOpened": true,
+      "webReadCompletedAt": "2026-10-31T05:19:40.587Z",
+      "directStatus": 200,
+      "directError": null,
+      "webRetrievalStatus": "content-retrieved",
+      "summary": "App agreement section7 says recurring memberships may be canceled through support with remaining paid-period access."
+    },
+    {
+      "url": "https://www.yollo.ai/refund-policy",
+      "status": "content-retrieved",
+      "checkedAt": "2026-10-31T05:20:02.870Z",
+      "error": "UND_ERR_CONNECT_TIMEOUT",
+      "contentRetrievedDirectly": false,
+      "textSha256": null,
+      "webSearchAndOriginalPageOpened": true,
+      "webReadCompletedAt": "2026-10-31T05:19:40.587Z",
+      "directStatus": "unknown",
+      "directError": "UND_ERR_CONNECT_TIMEOUT",
+      "webRetrievalStatus": "content-retrieved",
+      "summary": "Official refund-policy says entirely one-time credits/no recurring subscriptions; public pages do not establish which terms govern a particular purchase."
+    }
+  ],
+  "sourceReview": {
+    "retrievalMethod": "Actual current official searches and original-page opens using web tool; direct HTTP status/errors retained separately. No login/account/payment/deletion actions.",
+    "webReadCompletedAt": "2026-10-31T05:19:40.587Z",
+    "claims": [
+      "Website terms section3 says monthly/annual subscriptions may exist and cancellation uses original payment partner.",
+      "App agreement section7 says recurring memberships may be canceled through support with remaining paid-period access.",
+      "Official refund-policy says entirely one-time credits/no recurring subscriptions; public pages do not establish which terms govern a particular purchase."
+    ],
+    "summary": "Website terms and app-published agreement retain different subscription/cancellation wording, but the current official Refund & Cancellation Policy also states the service uses only one-time purchases with no subscriptions or automatic renewals. The existing draft omits this third contradictory source and should first have readers establish whether their own purchase renews at all."
+  },
+  "editorialReview": {
+    "readerQuestion": "Identify the billing manager for an existing Yollo purchase and preserve confirmation of the intended renewal change.",
+    "openingAnswersTask": true,
+    "concreteValue": "After narrow correction, identifies one-time versus recurring purchase before manager-specific cancellation, preserves conflicting policy scopes and avoids claiming terms for a private transaction.",
+    "readableEnglish": true,
+    "honestLimitations": true,
+    "noPersonalTestingClaim": true,
+    "noGuarantee": true,
+    "preserveExistingDates": false,
+    "missingAccountAccessIsNotBlocker": true,
+    "assessment": "Requires narrow truthful policy-conflict correction before basic approval."
+  },
+  "materialChangeFound": true,
+  "requiredContentChanges": [
+    {
+      "from": "description: \"Read Yollo’s website and app-published cancellation wording alongside the actual receipt, then confirm renewal stops without assuming deletion also changes billing.\"",
+      "to": "description: \"Check whether your Yollo purchase renews, compare conflicting official payment policies with the receipt, and use the billing manager only when a recurring subscription exists.\""
+    },
+    {
+      "from": "updatedDate: \"2026-10-19\"",
+      "to": "updatedDate: \"2026-10-31\""
+    },
+    {
+      "from": "answer: \"Yollo’s website terms direct cancellation through the original payment partner, while its app-published agreement describes contacting support. Use the receipt and applicable purchase context to identify the actual billing manager, and ask official support if the route is unclear. Confirm the resulting renewal state; an account deletion or signed-out screen is not billing confirmation.\"",
+      "to": "answer: \"First check whether your Yollo purchase renews at all. Its Refund & Cancellation Policy describes one-time purchases with no auto-renewals, while its website terms and app-published agreement still discuss subscriptions. Match the receipt and purchase context, and ask official support to resolve any conflict. For an actual recurring subscription, confirm cancellation with its billing manager; account deletion is not billing confirmation.\""
+    },
+    {
+      "from": "  - name: \"Yollo: app-published user agreement\"\n    url: \"https://app.yollo.ai/user-agreement.html\"",
+      "to": "  - name: \"Yollo: app-published user agreement\"\n    url: \"https://app.yollo.ai/user-agreement.html\"\n  - name: \"Yollo: one-time purchases and cancellation policy\"\n    url: \"https://www.yollo.ai/refund-policy\""
+    },
+    {
+      "from": "**The right Yollo cancellation route depends on the purchase record, not just the device in your hand.** The [website terms](https://www.yollo.ai/terms) identify the original payment partner, while the [app-published agreement](https://app.yollo.ai/user-agreement.html) describes contacting support. Preserve that difference rather than turning either page into a universal button-by-button promise.\n\nWe read these public pages on October 19, 2026. We did not inspect a paid account or verify which agreement applies to an individual purchase.",
+      "to": "**First establish whether your Yollo purchase has any renewal to cancel.** Its [Refund & Cancellation Policy](https://www.yollo.ai/refund-policy) describes one-time purchases with no automatic renewal. However, the [website terms](https://www.yollo.ai/terms) still describe subscription cancellation through the original payment partner, and the [app-published agreement](https://app.yollo.ai/user-agreement.html) describes contacting support.\n\nThese official pages do not describe one uniform payment model. Check the receipt and current purchase record rather than assuming every Yollo payment renews or that every earlier subscription has stopped. We did not inspect a paid account or establish which document governs an individual transaction."
+    },
+    {
+      "from": "Keep the receipt, product, account context, purchase date and renewal information together. A mobile browser purchase is not automatically an app-store purchase. An installed app icon does not establish who took the payment either.",
+      "to": "Keep the receipt, product, account context, purchase date and any renewal information together. If the record shows a one-time credit purchase with no recurring plan, there may be no renewal action to take; a refund request is a separate question. If it shows a recurring subscription, identify who manages that specific record. A mobile browser purchase is not automatically an app-store purchase, and an installed app icon does not establish who took the payment."
+    },
+    {
+      "from": "The website and app agreement use different cancellation wording. Possible explanations include product scope or an outdated document; public text alone does not decide which explanation applies.",
+      "to": "The website terms, app agreement and one-time-purchase policy use conflicting payment and cancellation wording. Product scope or an outdated document could explain the difference, but public text alone does not settle it. Ask official support which conditions apply to the identified receipt, especially if it shows renewal while the refund policy says there are no subscriptions."
+    }
+  ],
+  "recommendedFinalContentSha256": "d54e61e621a143a1aa61224c779d8e99fc62e474685aa4ca1c881d9acd019b0d",
+  "recommendedEditorialDecision": "apply-exact-material-corrections-then-authorized-parent-review",
+  "limitations": [
+    "Editorial/source research only; no account, login, subscription, payment, deletion, private photo upload or product performance test performed.",
+    "Exact draft source is verified; provider/source identity comes from this heartbeat fresh inventory, not a deployment by this agent."
+  ],
+  "currentMainBindingVerified": {
+    "passed": true,
+    "main": "84ab84d022d2991ad2c92beb475abc66d4f8f473",
+    "production": {
+      "id": "a930064b-eafc-41ae-88c6-4f63bdf4339f",
+      "url": "https://a930064b.yolloai-fun.pages.dev",
+      "commit": "84ab84d022d2991ad2c92beb475abc66d4f8f473",
+      "sourceShaRaw": "84ab84d022d2991ad2c92beb475abc66d4f8f473",
+      "createdAt": "2026-10-29T13:27:51.796834Z"
+    },
+    "proof": "../sites/yolloai.fun/source.json"
+  },
+  "changes": {
+    "repo": false,
+    "approval": false,
+    "deployment": false
+  },
+  "finalContentSha256": "da227e4fde9e5f5e093291693c9af0e5d8fab83138469bbcd4324d25e75ed6c1",
+  "originalContentSha256": "b8a6f788190394793e5a9e44c601ade6efb879ebb8bab4ee85d2dc1584ec0454",
+  "finalMetadataReview": {
+    "publishDate": "2026-11-03",
+    "originalPublishDate": "2026-10-30",
+    "reason": "Actual effective activation date; original planned releaseAt retained",
+    "updatedDateChangedOnlyForBodyCorrection": true
+  }
+}

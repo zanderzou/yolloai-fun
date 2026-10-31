@@ -91,8 +91,8 @@
       "language": "en",
       "approved": true,
       "status": "editorially-reviewed",
-      "sourcesCheckedAt": "2026-10-19",
-      "reviewedSha256": "b8a6f788190394793e5a9e44c601ade6efb879ebb8bab4ee85d2dc1584ec0454",
+      "sourcesCheckedAt": "2026-10-31",
+      "reviewedSha256": "da227e4fde9e5f5e093291693c9af0e5d8fab83138469bbcd4324d25e75ed6c1",
       "wordCount": 417,
       "editorialIntent": "A receipt-first route comparison that acknowledges the two published descriptions instead of asserting one universal interface.",
       "sources": [
@@ -103,6 +103,10 @@
         [
           "Yollo: app-published user agreement",
           "https://app.yollo.ai/user-agreement.html"
+        ],
+        [
+          "Yollo: one-time purchases and cancellation policy",
+          "https://www.yollo.ai/refund-policy"
         ]
       ],
       "notBefore": "2026-11-03T04:37:10.772Z",

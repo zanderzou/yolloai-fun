@@ -84,6 +84,71 @@
         }
       ],
       "certificateDigest": "c2423b5b1374ebc3370d5b17199ed683135dd1a1fb6557f7c66aad0950115aa6"
+    },
+    "yollo-cancel-subscription-payment-channel": {
+      "schemaVersion": 1,
+      "skill": {
+        "name": "write-tested-seo",
+        "version": "1.5"
+      },
+      "reviewStandard": "portfolio-basic-quality-20261027",
+      "status": "validated",
+      "domain": "yolloai.fun",
+      "slug": "yollo-cancel-subscription-payment-channel",
+      "order": 4,
+      "releaseAt": "2026-10-30T23:14:11.864Z",
+      "activationAt": "2026-11-03T04:37:10.772Z",
+      "reviewedAt": "2026-10-31T05:21:11.692Z",
+      "factsCheckedAt": "2026-10-31T05:20:03.004Z",
+      "reviewedBy": "Codex article and current primary-source review under October27 human standard",
+      "contentSha256": "da227e4fde9e5f5e093291693c9af0e5d8fab83138469bbcd4324d25e75ed6c1",
+      "editorialReview": {
+        "readable": true,
+        "useful": true,
+        "factual": true,
+        "experienceClaims": "none",
+        "note": "Requires narrow truthful policy-conflict correction before basic approval."
+      },
+      "observations": [],
+      "officialSources": [
+        {
+          "url": "https://www.yollo.ai/terms",
+          "checkedAt": "2026-10-31T05:20:02.870Z",
+          "status": "content-retrieved",
+          "claim": "Requires narrow truthful policy-conflict correction before basic approval.",
+          "evidence": [
+            {
+              "path": "private-editorial-evidence/basic-review-20261031-051246/editorial-review.json",
+              "sha256": "92266818e6fdcb57fd5b09aac6b717ab3d87a795b809c68ff1f1316b1fce2d0c"
+            }
+          ]
+        },
+        {
+          "url": "https://app.yollo.ai/user-agreement.html",
+          "checkedAt": "2026-10-31T05:19:43.256Z",
+          "status": "content-retrieved",
+          "claim": "Requires narrow truthful policy-conflict correction before basic approval.",
+          "evidence": [
+            {
+              "path": "private-editorial-evidence/basic-review-20261031-051246/editorial-review.json",
+              "sha256": "92266818e6fdcb57fd5b09aac6b717ab3d87a795b809c68ff1f1316b1fce2d0c"
+            }
+          ]
+        },
+        {
+          "url": "https://www.yollo.ai/refund-policy",
+          "checkedAt": "2026-10-31T05:20:02.870Z",
+          "status": "content-retrieved",
+          "claim": "Requires narrow truthful policy-conflict correction before basic approval.",
+          "evidence": [
+            {
+              "path": "private-editorial-evidence/basic-review-20261031-051246/editorial-review.json",
+              "sha256": "92266818e6fdcb57fd5b09aac6b717ab3d87a795b809c68ff1f1316b1fce2d0c"
+            }
+          ]
+        }
+      ],
+      "certificateDigest": "4aeeefe4447a5d3f3fde81bbbf8d243e957001b73056b1f600bd7ccd76e6ed8a"
     }
   }
 }
